@@ -14,7 +14,7 @@
     <Shell.Resources>
         <ResourceDictionary>
             <Style x:Key="BaseStyle" TargetType="Element">
-                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark=#1A1A1A Light=#1A1A1A}" />
+                <Setter Property="Shell.BackgroundColor" Value="{AppThemeBinding Dark=#1A1A1A, Light=#1A1A1A}" />
                 <Setter Property="Shell.ForegroundColor" Value="Red" />
                 <Setter Property="Shell.TitleColor" Value="Red" />
                 <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
