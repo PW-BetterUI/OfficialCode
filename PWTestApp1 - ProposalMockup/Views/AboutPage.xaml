@@ -59,11 +59,11 @@
                     </ScrollView>
                 </ContentView>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="20">
-                <StackLayout Orientation="Vertical" Padding="10, 0, 0, 0">
+            <StackLayout Orientation="Horizontal" Spacing="40">
+                <StackLayout Orientation="Vertical" Padding="20, 0, 0, 0">
                     <Label Text="Upcoming Events" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
-                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
+                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="Start" HeightRequest="215" WidthRequest="135" CornerRadius="7">
                             <ScrollView>
                                 <StackLayout Orientation="Vertical">
                                     <Button Text="event 1" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
@@ -81,7 +81,7 @@
                     <ScrollView>
                         <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
                             <StackLayout Orientation="Vertical">
-                                <StackLayout Padding="0, 0, 0, 10">
+                                <StackLayout Padding="0, 0, 0, 20">
                                     <Label Text="6 April 2021" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
                                     <Label Text="Tuesday" TextColor="{AppThemeBinding Dark=#B0B0B0, Light=#333333}" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
                                     <Label Text="Term 2 Week 3" TextColor="{AppThemeBinding Dark=#B0B0B0, Light=#333333}" FontSize="20" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
