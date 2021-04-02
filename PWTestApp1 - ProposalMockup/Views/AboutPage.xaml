@@ -79,7 +79,7 @@
                 <StackLayout Orientation="Vertical">
                     <Label Text="Event Calendar" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
-                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#1A1A1A}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
+                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Padding="0, 0, 0, 10">
                                     <Label Text="6 April 2021" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
