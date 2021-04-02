@@ -59,7 +59,7 @@
                     </ScrollView>
                 </ContentView>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="40">
+            <StackLayout Orientation="Horizontal" Spacing="20">
                 <StackLayout Orientation="Vertical" Padding="20, 0, 0, 0">
                     <Label Text="Upcoming Events" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
