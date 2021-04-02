@@ -42,7 +42,6 @@
                         <StackLayout>
                             <Label Text="Unread Announcements" TextColor="Red" FontSize="24" FontAttributes="Bold"/>
                             <ScrollView>
-<<<<<<< HEAD
                                 <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#5E5E5E}" HorizontalOptions="Center" HeightRequest="250" WidthRequest="335" CornerRadius="7">
                                     <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#1A1A1A}" HorizontalOptions="Center" HeightRequest="250" WidthRequest="335" CornerRadius="7">
                                         <ScrollView>
@@ -55,54 +54,34 @@
                                             </StackLayout>
                                         </ScrollView>
                                     </Frame>
-=======
-                                <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="Center" HeightRequest="250" WidthRequest="335" CornerRadius="7">
-                                    <ScrollView>
-                                        <StackLayout>
-                                            <Button Text="announcement 1" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                                            <Button Text="announcement 2" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                                            <Button Text="announcement 3" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                                            <Button Text="announcement 4" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                                            <Button Text="announcement 5" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                                        </StackLayout>
-                                    </ScrollView>
->>>>>>> 145d68880aa1c0aab0774eb6956f573bf8e90230
                                 </Frame>
                             </ScrollView>
-                            <Label Text="Last checked on: Yesterday, 18:30" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+                            <Label Text="Last checked on: Yesterday, 18:30" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" FontSize="12" FontAttributes="Bold" HorizontalTextAlignment="End"/>
                         </StackLayout>
                     </ScrollView>
                 </ContentView>
             </StackLayout>
-            <StackLayout Orientation="Horizontal" Spacing="20"/>
-            <StackLayout Orientation="Vertical" Padding="10, 0, 0, 0"/>
-            <Label Text="Upcoming Events" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
-            <ScrollView>
-                <<<<<<< HEAD
-                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFFFFF}" HorizontalOptions="Center" HeightRequest="215" WidthRequest="135" CornerRadius="7">
-                =======
-                <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
-                    >>>>>>> 145d68880aa1c0aab0774eb6956f573bf8e90230
+            <StackLayout Orientation="Horizontal" Spacing="20">
+                <StackLayout Orientation="Vertical" Padding="10, 0, 0, 0">
+                    <Label Text="Upcoming Events" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
-                        <StackLayout Orientation="Vertical">
-                            <Button Text="event 1" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                            <Button Text="event 2" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                            <Button Text="event 3" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                            <Button Text="event 4" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                            <Button Text="event 5" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
-                        </StackLayout>
+                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFFFFF}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
+                            <ScrollView>
+                                <StackLayout Orientation="Vertical">
+                                    <Button Text="event 1" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#363636}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text="event 2" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#363636}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text="event 3" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#363636}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text="event 4" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#363636}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                                    <Button Text="event 5" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#FFFFFF}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#363636}" CornerRadius="7" VerticalOptions="Start" HorizontalOptions="FillAndExpand"/>
+                                </StackLayout>
+                            </ScrollView>
+                        </Frame>
                     </ScrollView>
-                </Frame>
-
-        </StackLayout>
+                </StackLayout>
                 <StackLayout Orientation="Vertical">
                     <Label Text="Event Calendar" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
-<<<<<<< HEAD
-                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#1A1A1A}" HorizontalOptions="Center" HeightRequest="215" WidthRequest="135" CornerRadius="7">
-=======
-                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
->>>>>>> 145d68880aa1c0aab0774eb6956f573bf8e90230
+                        <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#1A1A1A}" HorizontalOptions="End" HeightRequest="215" WidthRequest="135" CornerRadius="7">
                             <StackLayout Orientation="Vertical">
                                 <StackLayout Padding="0, 0, 0, 10">
                                     <Label Text="6 April 2021" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="Center"/>
