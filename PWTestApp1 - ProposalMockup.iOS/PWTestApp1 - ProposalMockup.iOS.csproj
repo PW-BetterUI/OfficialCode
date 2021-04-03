@@ -142,4 +142,10 @@
       <Name>PWTestApp1 - ProposalMockup</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\hci_logo3_transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home_icon2.png" />
+  </ItemGroup>
 </Project>
