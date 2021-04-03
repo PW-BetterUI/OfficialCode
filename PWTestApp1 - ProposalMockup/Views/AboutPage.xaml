@@ -60,7 +60,7 @@
                 </ContentView>
             </StackLayout>
             <StackLayout Orientation="Horizontal" Spacing="20">
-                <StackLayout Orientation="Vertical" Padding="20, 0, 0, 0">
+                <StackLayout Orientation="Vertical" Padding="10, 0, 0, 0">
                     <Label Text="Upcoming Events" TextColor="Red" FontSize="15" FontAttributes="Bold"/>
                     <ScrollView>
                         <Frame BackgroundColor="{AppThemeBinding Dark=#1A1A1A, Light=#FFD3D3D3}" HorizontalOptions="Start" HeightRequest="215" WidthRequest="135" CornerRadius="7">
