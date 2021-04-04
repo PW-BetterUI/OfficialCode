@@ -44,33 +44,5 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             Console.WriteLine("Test Passed (8)");
         }
-        void OnButtonClicked9(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (9)");
-        }
-        void OnButtonClicked10(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (10)");
-        }  
-        void OnButtonClicked11(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (11)");
-        }
-        void OnButtonClicked12(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (12)");
-        }
-        void OnButtonClicked13(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (13)");
-        }
-        void OnButtonClicked14(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (14)");
-        }
-        void OnButtonClicked15(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (15)");
-        }
     }
 }

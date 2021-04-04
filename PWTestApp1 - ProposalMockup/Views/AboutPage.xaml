@@ -40,21 +40,14 @@
             <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
                 <ScrollView Grid.Column="2" Grid.Row="2"  HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always">
                     <StackLayout>
-                        <Button Text="Announcement 1" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 2" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 3" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 4" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 5" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 6" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 7" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 8" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 9" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 10" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 11" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 12" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 13" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 14" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
-                        <Button Text="Announcement 15" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}"/>
+                        <Button Text="Announcement 1" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked1"/>
+                        <Button Text="Announcement 2" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked2"/>
+                        <Button Text="Announcement 3" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked3"/>
+                        <Button Text="Announcement 4" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked4"/>
+                        <Button Text="Announcement 5" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked5"/>
+                        <Button Text="Announcement 6" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked6"/>
+                        <Button Text="Announcement 7" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked7"/>
+                        <Button Text="Announcement 8" FontSize="20" TextColor="{AppThemeBinding Dark=#FFFFFF, Light=#000000}" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFFFFF}" Pressed="OnButtonClicked8"/>
                     </StackLayout>
                 </ScrollView>
             </Frame>
