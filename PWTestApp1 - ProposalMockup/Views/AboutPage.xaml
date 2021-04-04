@@ -36,7 +36,7 @@
         </Grid.ColumnDefinitions>
 
         <Label BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Row="1" Grid.RowSpan="3"  Grid.Column="1" Grid.ColumnSpan="3"/>
-        <Label Text="no u" Grid.Row="4" Grid.ColumnSpan="5"/>
+        <Label Text="ur mom yuheng is gay" Grid.Row="4" Grid.ColumnSpan="5"/>
 
         <ScrollView  Grid.Column="2" Grid.Row="2"  HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always">
             <StackLayout >
