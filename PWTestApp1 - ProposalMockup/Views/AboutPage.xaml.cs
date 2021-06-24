@@ -12,7 +12,12 @@ namespace PWTestApp1___ProposalMockup.Views
             InitializeComponent();
         }
 
-        void OnButtonClicked1(object sender, EventArgs e)
+        private void Button_Pressed(object sender, EventArgs e)
+        {
+
+        }
+
+        /*void OnButtonClicked1(object sender, EventArgs e)
         {
             Console.WriteLine("Test Passed (1)");
         }
@@ -44,5 +49,6 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             Console.WriteLine("Test Passed (8)");
         }
+        */
     }
 }

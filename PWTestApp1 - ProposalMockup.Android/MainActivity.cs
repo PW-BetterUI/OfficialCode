@@ -7,6 +7,9 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 
+using PWTestApp1___ProposalMockup.Droid;
+using PWTestApp1___ProposalMockup;
+
 namespace PWTestApp1___ProposalMockup.Droid
 {
     [Activity(Label = "PWTestApp1___ProposalMockup", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
