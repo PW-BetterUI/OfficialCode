@@ -2,6 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Linq;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Sheets.v4;
+using Google.Apis.Sheets.v4.Data;
 using Xamarin.Forms;
 
 namespace PWTestApp1___ProposalMockup.ViewModels
