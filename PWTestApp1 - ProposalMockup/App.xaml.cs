@@ -10,7 +10,7 @@ namespace PWTestApp1___ProposalMockup
 {
     public partial class App : Application
     {
-        static ProjectDatabase database;
+        //static ProjectDatabase database;
 
         //public static ProjectDatabase Database
         //{

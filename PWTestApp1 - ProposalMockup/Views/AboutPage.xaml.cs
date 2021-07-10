@@ -7,55 +7,52 @@ namespace PWTestApp1___ProposalMockup.Views
 {
     public partial class AboutPage : ContentPage
     {
+
         public AboutPage()
         {
+            StackLayout stackLayout = Announcements;
             InitializeComponent();
-            Content = new ScrollView
+        }
+
+        public void countButton(System.Object sender, System.EventArgs e)
+        {
+            int c = Int32.Parse(buttonNum.Text);
+            for(int i = 0; i <= c; i++)
             {
-                Grid.SetRow=
+                Console.WriteLine(i);
             }
-            string value = numberEntry.Text;
-            Convert.ToInt32(value);
-            
-        }
-        
-        private void Button_Pressed(object sender, EventArgs e)
-        {
+            //StackLayout parent;
+            //try
+            //{
+            //    int count = Convert.ToInt32(buttonNum.Text);
 
-        }
+            //    Button button = new Button
+            //    {
+            //        BackgroundColor = Color.White,
+            //        Text = "I'm gamer",
+            //        TextColor = Color.Black
+            //    };
 
-        /*void OnButtonClicked1(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (1)");
-        }
-        void OnButtonClicked2(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (2)");
-        }
-        void OnButtonClicked3(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (3)");
-        }
-        void OnButtonClicked4(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (4)");
-        }
-        void OnButtonClicked5(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (5)");
-        }
-        void OnButtonClicked6(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (6)");
-        }
-        void OnButtonClicked7(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (7)");
-        }
-        void OnButtonClicked8(object sender, EventArgs e)
-        {
-            Console.WriteLine("Test Passed (8)");
-        }
-        */
+            //    parent = Announcements;
+
+            //    //for(int i = 0; i < count; i++)
+            //    //{
+            //    //    parent.Children.Add(button);
+            //    //    Console.WriteLine(Announcements.Children.Count);
+            //    //}
+            //    int x = 0;
+            //    while(x < 10)
+            //    {
+            //        Console.WriteLine(Announcements.Children.Count);
+            //        parent.Children.Add(button);
+            //        Console.WriteLine(Announcements.Children.Count);
+            //        x++;
+            //    }
+            //}
+            //catch
+            //{
+            //    Console.WriteLine("something went wrong please try again");
+            //}
+        }       
     }
 }
