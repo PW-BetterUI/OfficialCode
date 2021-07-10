@@ -9,14 +9,6 @@ namespace PWTestApp1___ProposalMockup.Views
     {
         public AboutPage()
         {
-            InitializeComponent();
-            Content = new ScrollView
-            {
-                Grid.SetRow=
-            }
-            string value = numberEntry.Text;
-            Convert.ToInt32(value);
-            
         }
         
         private void Button_Pressed(object sender, EventArgs e)

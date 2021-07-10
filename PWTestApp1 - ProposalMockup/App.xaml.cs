@@ -1,6 +1,5 @@
 ﻿using PWTestApp1___ProposalMockup.Services;
 using PWTestApp1___ProposalMockup.Views;
-using PWTestApp1___ProposalMockup.Data;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -10,7 +9,7 @@ namespace PWTestApp1___ProposalMockup
 {
     public partial class App : Application
     {
-        static ProjectDatabase database;
+        //static ProjectDatabase database;
 
         //public static ProjectDatabase Database
         //{

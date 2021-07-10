@@ -13,6 +13,7 @@ using Google.Apis.Sheets.v4.Data;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
+using System.Diagnostics;
 
 // !!!!!!!!!!!!!!!!!!! WARNING: REMEBER TO FIND A WAY TO GET RID OF client_secrets.json WHEN LAUNCHING FINAL PROJECT; SYSTEM CAN BE HACKED!!!!!!!!!!!!!!!!!!!
 namespace PWTestApp1___ProposalMockup.Views
@@ -32,9 +33,27 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public LoginPage()
         {
-            InitializeComponent();
+            Debug.WriteLine("Testing");
+            String relPath = GetRelativePath(@"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Data\clientSecrets.json", @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views");
+            Debug.WriteLine(relPath);
             this.BindingContext = new LoginViewModel();
+            InitializeComponent(); 
+            //..\Data\clientSecrets.json
         }
+        
+        public static string GetRelativePath(string fullPath, string basePath)
+        {
+            if (!basePath.EndsWith("\\"))
+                basePath += "\\";
+
+            Uri baseUri = new Uri(basePath);
+            Uri fullUri = new Uri(fullPath);
+
+            Uri relativeUri = baseUri.MakeRelativeUri(fullUri);
+
+            return relativeUri.ToString().Replace("/", "\\");
+        }
+
         void login(System.Object sender, System.EventArgs e)
         {
             CheckEntries(idField.Text, passwordField.Text);
@@ -48,24 +67,35 @@ namespace PWTestApp1___ProposalMockup.Views
                 errorMsg.IsVisible = false;
             }
         }
+        public GoogleCredential credential;
         void checkCredentials()
         {
-            //GoogleCredential credential;
-            //string path = Path.Combine(FileSystem.AppDataDirectory, fileName);
+            string localDir = Directory.GetCurrentDirectory();
+            string upastep = Path.GetDirectoryName(@"..\localDir");
+            string path = @"..\Data\clientSecrets.json";
+            Debug.WriteLine(path);
             //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clientSecrets.json");
 
-
-            //using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
-            //{
-            //    credential = GoogleCredential.FromStream(stream)
-            //        .CreateScoped(Scopes);
-            //}
-
-            //service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
-            //{
-            //    HttpClientInitializer = credential,
-            //    ApplicationName = ApplicationName,
-            //});
+            try
+            {
+                using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                {
+                    credential = GoogleCredential.FromStream(stream)
+                        .CreateScoped(Scopes);
+                }
+                service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+                {
+                    HttpClientInitializer = credential,
+                    ApplicationName = ApplicationName,
+                });
+            }
+            catch {
+                Console.WriteLine("Could not find file you dumbshit");
+            }
+               
+            
+            
+            
         }
         void CheckEntries(string id, string pass)
         {
