@@ -68,7 +68,7 @@
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <BundleResource Include="Resources\clientSecrets.json" />
+    <EmbeddedResource Include="Resources\clientSecrets.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -151,5 +151,8 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\home_icon2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\test.txt" />
   </ItemGroup>
 </Project>
