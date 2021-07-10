@@ -1,6 +1,5 @@
 ﻿using PWTestApp1___ProposalMockup.Services;
 using PWTestApp1___ProposalMockup.Views;
-using PWTestApp1___ProposalMockup.Data;
 using System;
 using System.IO;
 using Xamarin.Forms;
