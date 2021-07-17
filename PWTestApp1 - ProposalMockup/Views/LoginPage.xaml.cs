@@ -19,6 +19,7 @@ using System.Diagnostics;
 namespace PWTestApp1___ProposalMockup.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class LoginPage : ContentPage
     {
         static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
@@ -27,18 +28,18 @@ namespace PWTestApp1___ProposalMockup.Views
         static readonly string sheet = "Student Information";
         static SheetsService service;
 
-        static bool failed = false;
-
-        const string fileName = "clientSecrets.json";
+        static bool failed = true;
 
         public LoginPage()
         {
-            Debug.WriteLine("Testing");
-            String relPath = GetRelativePath(@"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Data\clientSecrets.json", @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views");
-            Debug.WriteLine(relPath);
-            this.BindingContext = new LoginViewModel();
-            InitializeComponent(); 
+            //Debug.WriteLine("Testing");
+            //String relPath = GetRelativePath(@"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Data\clientSecrets.json", @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views");
+            //Debug.WriteLine(relPath);
+            //this.BindingContext = new LoginViewModel();
+            //InitializeComponent(); 
+
             //..\Data\clientSecrets.json
+            InitializeComponent();
         }
         
         public static string GetRelativePath(string fullPath, string basePath)
@@ -54,52 +55,61 @@ namespace PWTestApp1___ProposalMockup.Views
             return relativeUri.ToString().Replace("/", "\\");
         }
 
-        void login(System.Object sender, System.EventArgs e)
+        private void Login(System.Object sender, System.EventArgs e)
         {
             CheckEntries(idField.Text, passwordField.Text);
-
-            if (failed)
-            {
-                errorMsg.IsVisible = true;
-            }
-            else
-            {
-                errorMsg.IsVisible = false;
-            }
         }
-        public GoogleCredential credential;
-        void checkCredentials()
-        {
-            string localDir = Directory.GetCurrentDirectory();
-            string upastep = Path.GetDirectoryName(@"..\localDir");
-            string path = @"..\Data\clientSecrets.json";
-            Debug.WriteLine(path);
-            //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clientSecrets.json");
 
-            try
+        private async void CheckCredentials()
+        {
+            GoogleCredential credential;
+
+            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("clientSecrets.json"))
+                .CreateScoped(Scopes);
+
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
             {
-                using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+        }
+
+        private void CheckEntries(string id, string pass)
+        {
+            CheckUserID(id);
+            CheckPassword(pass);
+        }
+
+        private async void CheckPassword(string pass)
+        {
+            CheckCredentials();
+
+            var range = $"{sheet}!A2:D5";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+            foreach (var row in values)
+            {
+                if (pass == row[3].ToString() && failed == false)
                 {
-                    credential = GoogleCredential.FromStream(stream)
-                        .CreateScoped(Scopes);
+                    Console.WriteLine("password correct yes");
+                    errorMsg.IsVisible = false;
+                    await Shell.Current.GoToAsync("//AboutPage");
+                    return;
                 }
-                service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+                else if (failed || pass == null)
                 {
-                    HttpClientInitializer = credential,
-                    ApplicationName = ApplicationName,
-                });
+                    Console.WriteLine("bruh password incorrect");
+                    errorMsg.IsVisible = true;
+                    return;
+                }
             }
-            catch {
-                Console.WriteLine("Could not find file you dumbshit");
-            }
-               
-            
-            
-            
         }
-        void CheckEntries(string id, string pass)
+
+        private void CheckUserID(string id)
         {
-            checkCredentials();
+            CheckCredentials();
             int i = 0;
 
             var range = $"{sheet}!A2:D5";
@@ -107,35 +117,28 @@ namespace PWTestApp1___ProposalMockup.Views
 
             var response = request.Execute();
             var values = response.Values;
-            if(values != null && values.Count > 0)
+            if (values != null && values.Count > 0)
             {
                 foreach (var row in values)
                 {
-                    if (id == row[0].ToString())
+                    if (id.ToLower() == row[0].ToString())
                     {
-                        Console.WriteLine("User ID check is complete and matches with data in database!");
+                        Console.WriteLine("yes");
+                        errorMsg.IsVisible = false;
+                        failed = false;
                         return;
                     }
-                    else if (i == 3)
+                    else if ((i == 3 && id != row[0].ToString()) || id == null)
                     {
-                        failed = true;
+                        Console.WriteLine("no");
+                        errorMsg.IsVisible = true;
                         return;
                     }
-                }
-                foreach (var row in values)
-                {
-                    if (id == row[3].ToString())
-                    {
-                        Console.WriteLine("Password check is complete and matches with data in databse!");
-                        return;
-                    }
-                    else if (i == 3)
-                    {
-                        failed = true;
-                        return;
-                    }
+                    i++;
                 }
             }
         }
+
+
     }
 }
