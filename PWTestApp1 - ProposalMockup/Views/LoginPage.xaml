@@ -43,9 +43,9 @@
             FontAttributes="bold"
             Padding="0, 80, 0, 0"/>
         <StackLayout Grid.Row="2" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="FillAndExpand">
-            <Entry x:Name="idField" Placeholder="Student ID"/>
-            <Entry x:Name="passwordField" Placeholder="Password" IsPassword="True"/>
-            <Button Text="Login" Clicked="login"/>
+            <Entry x:Name="idField" Placeholder="Student ID" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Entry x:Name="passwordField" Placeholder="Password" IsPassword="True" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Button Text="Login" Clicked="Login"/>
         </StackLayout>
         <Label x:Name="errorMsg" 
                Text="The User ID or Password that you have entered is incorrect."

@@ -19,6 +19,7 @@ using System.Security.Permissions;
 namespace PWTestApp1___ProposalMockup.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class LoginPage : ContentPage
     {
         static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
@@ -27,34 +28,19 @@ namespace PWTestApp1___ProposalMockup.Views
         static readonly string sheet = "Student Information";
         static SheetsService service;
 
-        static bool failed = false;
-
-        const string fileName = "clientSecrets.json";
+        static bool failed = true;
 
         public LoginPage()
         {
-            Debug.WriteLine("Testing");
-            String relPath = GetRelativePath(@"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Data\clientSecrets.json", @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views");
-            Debug.WriteLine(relPath);
-            this.BindingContext = new LoginViewModel();
-            InitializeComponent(); 
-            //..\Data\clientSecrets.json
+            InitializeComponent();
         }
-        
-        public static string GetRelativePath(string fullPath, string basePath)
+
+        private void Login(System.Object sender, System.EventArgs e)
         {
-            if (!basePath.EndsWith("\\"))
-                basePath += "\\";
-
-            Uri baseUri = new Uri(basePath);
-            Uri fullUri = new Uri(fullPath);
-
-            Uri relativeUri = baseUri.MakeRelativeUri(fullUri);
-
-            return relativeUri.ToString().Replace("/", "\\");
+            CheckEntries(idField.Text, passwordField.Text);
         }
 
-        void login(System.Object sender, System.EventArgs e)
+        private void CheckEntries(string id, string pass)
         {
             CheckEntries(idField.Text, passwordField.Text);
 
@@ -70,18 +56,15 @@ namespace PWTestApp1___ProposalMockup.Views
         public GoogleCredential credential;
         void checkCredentials()
         {
-            string appPath = AppDomain.CurrentDomain.BaseDirectory; //Does not show filepath?
-            //string upastep = Path.GetDirectoryName(@"..\\localDir");
-            //string path = @"..\\Data\\clientSecrets.json";
-            Console.WriteLine("!!!!" + appPath + "!!!!");
-            string filePath = "clientSecrets.json";
-            string path = Path.Combine(appPath, filePath);
-            path = path.ToString().Replace("/", "\\");
-            Console.WriteLine(path);
+            string localDir = Directory.GetCurrentDirectory();
+            string upastep = Path.GetDirectoryName(@"..\localDir");
+            string path = @"..\Data\clientSecrets.json";
+            Debug.WriteLine(path);
             //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clientSecrets.json");
 
-
-            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+            try
+            {
+                using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
                 {
                     credential = GoogleCredential.FromStream(stream)
                         .CreateScoped(Scopes);
@@ -91,7 +74,10 @@ namespace PWTestApp1___ProposalMockup.Views
                     HttpClientInitializer = credential,
                     ApplicationName = ApplicationName,
                 });
-            
+            }
+            catch {
+                Console.WriteLine("Could not find file you dumbshit");
+            }
                
             
             
@@ -107,33 +93,52 @@ namespace PWTestApp1___ProposalMockup.Views
 
             var response = request.Execute();
             var values = response.Values;
-            if(values != null && values.Count > 0)
+            foreach (var row in values)
+            {
+                if (pass == row[3].ToString() && failed == false)
+                {
+                    Console.WriteLine("password correct yes");
+                    errorMsg.IsVisible = false;
+                    await Shell.Current.GoToAsync("//AboutPage");
+                    return;
+                }
+                else if (failed || pass == null)
+                {
+                    Console.WriteLine("bruh password incorrect");
+                    errorMsg.IsVisible = true;
+                    return;
+                }
+            }
+        }
+
+        private void CheckUserID(string id)
+        {
+            CheckCredentials();
+            int i = 0;
+
+            var range = $"{sheet}!A2:D5";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+            if (values != null && values.Count > 0)
             {
                 foreach (var row in values)
                 {
-                    if (id == row[0].ToString())
+                    if (id.ToLower() == row[0].ToString())
                     {
-                        Console.WriteLine("User ID check is complete and matches with data in database!");
+                        Console.WriteLine("yes");
+                        errorMsg.IsVisible = false;
+                        failed = false;
                         return;
                     }
-                    else if (i == 3)
+                    else if ((i == 3 && id != row[0].ToString()) || id == null)
                     {
-                        failed = true;
+                        Console.WriteLine("no");
+                        errorMsg.IsVisible = true;
                         return;
                     }
-                }
-                foreach (var row in values)
-                {
-                    if (id == row[3].ToString())
-                    {
-                        Console.WriteLine("Password check is complete and matches with data in databse!");
-                        return;
-                    }
-                    else if (i == 3)
-                    {
-                        failed = true;
-                        return;
-                    }
+                    i++;
                 }
             }
         }
