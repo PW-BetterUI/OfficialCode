@@ -32,32 +32,18 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public LoginPage()
         {
-            //Debug.WriteLine("Testing");
-            //String relPath = GetRelativePath(@"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Data\clientSecrets.json", @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views");
-            //Debug.WriteLine(relPath);
-            //this.BindingContext = new LoginViewModel();
-            //InitializeComponent(); 
-
-            //..\Data\clientSecrets.json
             InitializeComponent();
-        }
-        
-        public static string GetRelativePath(string fullPath, string basePath)
-        {
-            if (!basePath.EndsWith("\\"))
-                basePath += "\\";
-
-            Uri baseUri = new Uri(basePath);
-            Uri fullUri = new Uri(fullPath);
-
-            Uri relativeUri = baseUri.MakeRelativeUri(fullUri);
-
-            return relativeUri.ToString().Replace("/", "\\");
         }
 
         private void Login(System.Object sender, System.EventArgs e)
         {
             CheckEntries(idField.Text, passwordField.Text);
+        }
+
+        private void CheckEntries(string id, string pass)
+        {
+            CheckUserID(id);
+            CheckPassword(pass);
         }
 
         private async void CheckCredentials()
@@ -72,12 +58,6 @@ namespace PWTestApp1___ProposalMockup.Views
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
-        }
-
-        private void CheckEntries(string id, string pass)
-        {
-            CheckUserID(id);
-            CheckPassword(pass);
         }
 
         private async void CheckPassword(string pass)
@@ -138,7 +118,5 @@ namespace PWTestApp1___ProposalMockup.Views
                 }
             }
         }
-
-
     }
 }
