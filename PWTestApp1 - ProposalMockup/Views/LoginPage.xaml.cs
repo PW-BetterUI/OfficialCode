@@ -14,7 +14,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using System.Diagnostics;
-
+using System.Security.Permissions;
 // !!!!!!!!!!!!!!!!!!! WARNING: REMEBER TO FIND A WAY TO GET RID OF client_secrets.json WHEN LAUNCHING FINAL PROJECT; SYSTEM CAN BE HACKED!!!!!!!!!!!!!!!!!!!
 namespace PWTestApp1___ProposalMockup.Views
 {
@@ -70,15 +70,18 @@ namespace PWTestApp1___ProposalMockup.Views
         public GoogleCredential credential;
         void checkCredentials()
         {
-            string localDir = Directory.GetCurrentDirectory();
-            string upastep = Path.GetDirectoryName(@"..\localDir");
-            string path = @"..\Data\clientSecrets.json";
-            Debug.WriteLine(path);
+            string appPath = AppDomain.CurrentDomain.BaseDirectory; //Does not show filepath?
+            //string upastep = Path.GetDirectoryName(@"..\\localDir");
+            //string path = @"..\\Data\\clientSecrets.json";
+            Console.WriteLine("!!!!" + appPath + "!!!!");
+            string filePath = "clientSecrets.json";
+            string path = Path.Combine(appPath, filePath);
+            path = path.ToString().Replace("/", "\\");
+            Console.WriteLine(path);
             //string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clientSecrets.json");
 
-            try
-            {
-                using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+
+            using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
                 {
                     credential = GoogleCredential.FromStream(stream)
                         .CreateScoped(Scopes);
@@ -88,10 +91,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     HttpClientInitializer = credential,
                     ApplicationName = ApplicationName,
                 });
-            }
-            catch {
-                Console.WriteLine("Could not find file you dumbshit");
-            }
+            
                
             
             
