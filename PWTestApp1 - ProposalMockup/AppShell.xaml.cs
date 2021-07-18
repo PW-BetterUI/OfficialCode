@@ -2,6 +2,7 @@
 using PWTestApp1___ProposalMockup.Views;
 using System;
 using System.Collections.Generic;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace PWTestApp1___ProposalMockup
@@ -18,6 +19,16 @@ namespace PWTestApp1___ProposalMockup
         private async void OnMenuItemClicked(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync("//LoginPage");
+        }
+
+        private async void BrowserIEMB(object sender, EventArgs e)
+        {
+            await Browser.OpenAsync("https://iemb.hci.edu.sg/", BrowserLaunchMode.SystemPreferred);
+        }
+        
+        private async void BrowserISP(object sender, EventArgs e)
+        {
+            await Browser.OpenAsync("https://isphs.hci.edu.sg/index.asp", BrowserLaunchMode.SystemPreferred);
         }
     }
 }

@@ -28,7 +28,10 @@ namespace PWTestApp1___ProposalMockup.Views
         static readonly string sheet = "Student Information";
         static SheetsService service;
 
-        static bool failed = true;
+        private static bool idFailed = true;
+        private static bool passwordFailed = true;
+
+        private static int idPos = 0;
 
         public LoginPage()
         {
@@ -40,10 +43,29 @@ namespace PWTestApp1___ProposalMockup.Views
             CheckEntries(idField.Text, passwordField.Text);
         }
 
-        private void CheckEntries(string id, string pass)
+        private async void CheckEntries(string id, string pass)
         {
-            CheckUserID(id);
-            CheckPassword(pass);
+            await Task.Run(async () =>
+            {
+                CheckUserID(id);
+                CheckPassword(pass);
+            });
+
+            if (idFailed || passwordFailed)
+            {
+                errorMsg.IsVisible = true;
+            }
+            else
+            {
+                await Shell.Current.GoToAsync("//AboutPage");
+
+                errorMsg.IsVisible = false;
+            }
+
+            idFailed = true;
+            passwordFailed = true;
+
+            idPos = 0;
         }
 
         private async void CheckCredentials()
@@ -59,34 +81,6 @@ namespace PWTestApp1___ProposalMockup.Views
                 ApplicationName = ApplicationName,
             });
         }
-
-        private async void CheckPassword(string pass)
-        {
-            CheckCredentials();
-
-            var range = $"{sheet}!A2:D5";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
-
-            var response = request.Execute();
-            var values = response.Values;
-            foreach (var row in values)
-            {
-                if (pass == row[3].ToString() && failed == false)
-                {
-                    Console.WriteLine("password correct yes");
-                    errorMsg.IsVisible = false;
-                    await Shell.Current.GoToAsync("//AboutPage");
-                    return;
-                }
-                else if (failed || pass == null)
-                {
-                    Console.WriteLine("bruh password incorrect");
-                    errorMsg.IsVisible = true;
-                    return;
-                }
-            }
-        }
-
         private void CheckUserID(string id)
         {
             CheckCredentials();
@@ -101,21 +95,45 @@ namespace PWTestApp1___ProposalMockup.Views
             {
                 foreach (var row in values)
                 {
-                    if (id.ToLower() == row[0].ToString())
+                    if (id != null && id.ToLower() == row[0].ToString())
                     {
                         Console.WriteLine("yes");
-                        errorMsg.IsVisible = false;
-                        failed = false;
+                        idFailed = false;
                         return;
                     }
-                    else if ((i == 3 && id != row[0].ToString()) || id == null)
+                    else
                     {
                         Console.WriteLine("no");
-                        errorMsg.IsVisible = true;
-                        return;
                     }
-                    i++;
+                    idPos++;
                 }
+            }
+        }
+
+        private void CheckPassword(string pass)
+        {
+            CheckCredentials();
+
+            int i = 0;
+
+            var range = $"{sheet}!A2:D5";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+            foreach (var row in values)
+            {
+                if (pass == row[3].ToString() && !idFailed && pass != null && i == idPos)
+                {
+                    Console.WriteLine("password correct yes");
+                    passwordFailed = false;
+                    return;
+                }
+                else //if (failed || pass == null)
+                {
+                    Console.WriteLine("bruh password incorrect");
+                }
+                i++;
             }
         }
     }
