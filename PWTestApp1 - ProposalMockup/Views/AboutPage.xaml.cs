@@ -16,11 +16,13 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public void countButton(System.Object sender, System.EventArgs e)
         {
-            int c = int.Parse(buttonNum.Text);
-            for(int i = 0; i <= c; i++)
-            {
-                Console.WriteLine(i);
-            }
+
+
+            //int c = int.Parse(buttonNum.Text);
+            //for(int i = 0; i <= c; i++)
+            //{
+            //    Console.WriteLine(i);
+            //}
             //StackLayout parent;
             //try
             //{
@@ -52,7 +54,17 @@ namespace PWTestApp1___ProposalMockup.Views
             //catch
             //{
             //    Console.WriteLine("something went wrong please try again");
-            //}
-        }       
+        }
+        private void buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked(object sender, EventArgs e)
+        {
+            Console.WriteLine("Its working i think");
+            Announcements.Children.Clear();
+            int x = Convert.ToInt32(buttonNum.Text);
+            while (x > 0)
+            {
+                Announcements.Children.Add(new Button { Text = "Announcement" });
+                x--;
+            }
+        }
     }
 }
