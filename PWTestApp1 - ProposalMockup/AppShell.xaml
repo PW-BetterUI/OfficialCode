@@ -3,7 +3,8 @@
        xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
        xmlns:local="clr-namespace:PWTestApp1___ProposalMockup.Views"
        Title="PWTestApp1___ProposalMockup"
-       x:Class="PWTestApp1___ProposalMockup.AppShell">
+       x:Class="PWTestApp1___ProposalMockup.AppShell"
+       BackgroundColor="Red">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -82,6 +83,9 @@
     -->
     <FlyoutItem Title="Home" Icon="home_icon2.png">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+    </FlyoutItem>
+    <FlyoutItem Title="Announcements" Icon="announcements_icon.ico">
+        <ShellContent Route="BrowseItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}"/>
     </FlyoutItem>
     <!--<FlyoutItem Title="Option 1" Icon="">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>

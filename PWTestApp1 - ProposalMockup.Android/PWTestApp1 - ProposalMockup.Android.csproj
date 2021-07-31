@@ -118,10 +118,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\announcements_icon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

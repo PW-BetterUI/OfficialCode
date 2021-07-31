@@ -16,7 +16,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public void countButton(System.Object sender, System.EventArgs e)
         {
-            int c = Int32.Parse(buttonNum.Text);
+            int c = int.Parse(buttonNum.Text);
             for(int i = 0; i <= c; i++)
             {
                 Console.WriteLine(i);
