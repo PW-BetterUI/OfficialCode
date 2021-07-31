@@ -14,7 +14,7 @@ namespace PWTestApp1___ProposalMockup
             InitializeComponent();
 
             DependencyService.Register<MockDataStore>();
-            MainPage = new AppShell();
+            MainPage = new LoginPage();
 
             Device.SetFlags(new string[] { "AppTheme_Experimental" });
         }
