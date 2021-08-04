@@ -43,8 +43,8 @@
             FontAttributes="bold"
             Padding="0, 80, 0, 0"/>
         <StackLayout Grid.Row="2" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="FillAndExpand">
-            <Entry x:Name="idField" Placeholder="Student ID" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
-            <Entry x:Name="passwordField" Placeholder="Password" IsPassword="True" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Entry x:Name="idField" Placeholder="Student ID" PlaceholderColor="{AppThemeBinding Dark=#FFA2A4A5, Light=#FFA2A4A5}" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Entry x:Name="passwordField" Placeholder="Password" PlaceholderColor="{AppThemeBinding Dark=#FFA2A4A5, Light=#FFA2A4A5}" IsPassword="True" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
             <Button Text="Login" Clicked="Login"/>
         </StackLayout>
         <Label x:Name="errorMsg" 

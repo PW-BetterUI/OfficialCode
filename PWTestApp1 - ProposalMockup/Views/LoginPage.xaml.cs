@@ -75,7 +75,6 @@ namespace PWTestApp1___ProposalMockup.Views
         private void CheckUserID(string id)
         {
             CheckCredentials();
-            int i = 0;
 
             var range = $"{sheet}!A2:D5";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);

@@ -1,12 +1,21 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.ComponentModel;
 using Xamarin.Forms;
+using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Sheets.v4;
 
 namespace PWTestApp1___ProposalMockup.Views
 {
     public partial class AboutPage : ContentPage
     {
+        static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
+        static readonly string ApplicationName = "Test";
+        static readonly string SpreadsheetId = "1w7bPa_hrH382oVPDwIW9EotY-rzHcj8VHBesYPHPNEg";
+        static readonly string sheet = "Student Information";
+        static SheetsService service;
 
         public AboutPage()
         {
@@ -17,44 +26,22 @@ namespace PWTestApp1___ProposalMockup.Views
         public void countButton(System.Object sender, System.EventArgs e)
         {
 
-
-            //int c = int.Parse(buttonNum.Text);
-            //for(int i = 0; i <= c; i++)
-            //{
-            //    Console.WriteLine(i);
-            //}
-            //StackLayout parent;
-            //try
-            //{
-            //    int count = Convert.ToInt32(buttonNum.Text);
-
-            //    Button button = new Button
-            //    {
-            //        BackgroundColor = Color.White,
-            //        Text = "I'm gamer",
-            //        TextColor = Color.Black
-            //    };
-
-            //    parent = Announcements;
-
-            //    //for(int i = 0; i < count; i++)
-            //    //{
-            //    //    parent.Children.Add(button);
-            //    //    Console.WriteLine(Announcements.Children.Count);
-            //    //}
-            //    int x = 0;
-            //    while(x < 10)
-            //    {
-            //        Console.WriteLine(Announcements.Children.Count);
-            //        parent.Children.Add(button);
-            //        Console.WriteLine(Announcements.Children.Count);
-            //        x++;
-            //    }
-            //}
-            //catch
-            //{
-            //    Console.WriteLine("something went wrong please try again");
         }
+
+        private async void GetAnnouncementInformation()
+        {
+            GoogleCredential credential;
+
+            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("client_secrets.json"))
+                .CreateScoped(Scopes);
+
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+        }
+
         private void buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked(object sender, EventArgs e)
         {
             Console.WriteLine("Its working i think");
