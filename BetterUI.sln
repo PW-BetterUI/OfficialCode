@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWTestApp1 - ProposalMockup
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWTestApp1 - ProposalMockup.iOS", "PWTestApp1 - ProposalMockup.iOS\PWTestApp1 - ProposalMockup.iOS.csproj", "{9F6704DE-706D-4AB1-AC8F-422941A17E35}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWTestApp1 - ProposalMockup", "PWTestApp1 - ProposalMockup\PWTestApp1 - ProposalMockup.csproj", "{478F5971-5B91-40CF-9A41-64616F7E0192}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PWTestApp1 - ProposalMockup", "PWTestApp1 - ProposalMockup\PWTestApp1 - ProposalMockup.csproj", "{478F5971-5B91-40CF-9A41-64616F7E0192}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
