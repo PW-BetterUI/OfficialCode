@@ -34,9 +34,12 @@ namespace PWTestApp1___ProposalMockup.Views
             CheckEntries(idField.Text, passwordField.Text);
         }
 
-        private async void CheckEntries(string id, string pass)
+        public async void CheckEntries(string id, string pass)
         {
-            await Task.Run(async () =>
+            activityIndicator.IsRunning = true;
+            errorMsg.IsVisible = false;
+
+            await Task.Run(() =>
             {
                 CheckUserID(id);
                 CheckPassword(pass);
@@ -51,10 +54,12 @@ namespace PWTestApp1___ProposalMockup.Views
                 await Shell.Current.GoToAsync("//AboutPage");
 
                 errorMsg.IsVisible = false;
+                AboutPage.idPosition = idPos;
             }
 
             idFailed = true;
             passwordFailed = true;
+            activityIndicator.IsRunning = false;
 
             idPos = 0;
         }
@@ -76,7 +81,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             CheckCredentials();
 
-            var range = $"{sheet}!A2:D5";
+            var range = $"{sheet}!A2:D";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
             var response = request.Execute();

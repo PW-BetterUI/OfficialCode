@@ -44,7 +44,7 @@
                 </ScrollView>
             </Frame>
             <Entry x:Name="buttonNum" Placeholder="insert the number of buttons you want"/>
-            <Button Text="yes I want to see more announcements lol" Clicked="buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked" x:Name="buttontoinsertmoreannouncementsthisisthelongestnameever"/>
+            <Button Text="yes I want to see more announcements lol" Clicked="Buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked" x:Name="buttontoinsertmoreannouncementsthisisthelongestnameever"/>
         </StackLayout>
 
     </Grid>
