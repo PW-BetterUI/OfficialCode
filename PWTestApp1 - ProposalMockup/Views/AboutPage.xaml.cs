@@ -121,6 +121,8 @@ namespace PWTestApp1___ProposalMockup.Views
         {   
             announcementList.Clear();
             Announcements.Children.Clear();
+            buttontoinsertmoreannouncementsthisisthelongestnameever.IsEnabled = false;
+
             await Task.Run(() => GetAnnouncements());
 
             //announcements = buttonNum.Text;
@@ -138,6 +140,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     Announcements.Children.Add(new Button { Text = announcementList[d] });
                 }
             }
+            buttontoinsertmoreannouncementsthisisthelongestnameever.IsEnabled = true;
         }
     }
 }
