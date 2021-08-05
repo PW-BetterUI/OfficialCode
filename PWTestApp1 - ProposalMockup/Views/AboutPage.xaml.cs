@@ -68,30 +68,39 @@ namespace PWTestApp1___ProposalMockup.Views
                         string ids = row[0].ToString();
                         if(ids == "0")
                         {
-                            //Announcements.Children.Add(new Label { Text = "No new announcements. Yay!", TextColor = Color.Black, HorizontalOptions = LayoutOptions.Center, IsVisible = true });
-                            //Announcements.Children.Add(new Button { Text = "im gay" });
                             break;
                         }
                         else
                         {
-                            //if (ids.Contains(','))
-                            //{
-                            //    unreadAnnouncementIds = ids.Split(',').ToList();
-                            //}
-                            //else
-                            //{
-                            //    unreadAnnouncementIds[0] = ids;
-                            //}
+                            announcementExist = true;
 
-                            //var range_ = $"{announcementLogSheet}!A2:K";
-                            //var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range_);
+                            if (ids.Contains(','))
+                            {
+                                ids = ids.Replace(',', ' ');
+                                Console.WriteLine(ids);
+                            }
+                            else
+                            {
+                                unreadAnnouncementIds.Add(ids);
+                            }
 
-                            //var response_ = request_.Execute();
-                            //var values_ = response.Values;
+                            var range_ = $"{announcementLogSheet}!A2:K4";
+                            var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range_);
 
-                            //foreach(string s in unreadAnnouncementIds)
+                            var response_ = request_.Execute();
+                            var values_ = response_.Values;
+
+                            foreach (var row_ in values_)
+                            {
+                                if (/*unreadAnnouncementIds.Contains(row[10].ToString())*/ 1 == 1)
+                                {
+                                    announcementList.Add(row_[0].ToString());
+                                }
+                            }
+
+                            //foreach (string s in unreadAnnouncementIds)
                             //{
-                            //    foreach(var row_ in values_)
+                            //    foreach (var row_ in values_)
                             //    {
                             //        if (s == row_[10].ToString())
                             //        {
