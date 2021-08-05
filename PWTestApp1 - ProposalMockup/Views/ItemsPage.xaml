@@ -6,14 +6,11 @@
              xmlns:local="clr-namespace:PWTestApp1___ProposalMockup.ViewModels"  
              xmlns:model="clr-namespace:PWTestApp1___ProposalMockup.Models"  
              x:Name="BrowseItemsPage">
-
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
-    </ContentPage.ToolbarItems>
+    
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
       https://docs.microsoft.com/xamarin/xamarin-forms/app-fundamentals/data-binding/compiled-bindings
-    -->
+    --><!--
     <RefreshView x:DataType="local:ItemsViewModel" Command="{Binding LoadItemsCommand}" IsRefreshing="{Binding IsBusy, Mode=TwoWay}">
         <CollectionView x:Name="ItemsListView"
                 ItemsSource="{Binding Items}"
@@ -40,5 +37,15 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-    </RefreshView>
+    </RefreshView>-->
+    <Grid>
+        <StackLayout Padding="5, 10, 5, 0">
+            <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold"/>
+            <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
+                <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" x:Name="Announcements">
+                    
+                </ListView>
+            </Frame>
+        </StackLayout>
+    </Grid>
 </ContentPage>
