@@ -30,5 +30,9 @@ namespace PWTestApp1___ProposalMockup
         {
             await Browser.OpenAsync("https://isphs.hci.edu.sg/index.asp", BrowserLaunchMode.SystemPreferred);
         }
+        private async void Results(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync("//Results");
+        }
     }
 }
