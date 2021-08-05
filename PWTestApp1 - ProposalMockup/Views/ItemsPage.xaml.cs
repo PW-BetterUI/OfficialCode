@@ -33,14 +33,14 @@ namespace PWTestApp1___ProposalMockup.Views
         }
         private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
         {
-            List<string> announcementList = AboutPage.announcementList;
-            int i = announcementList.Count();
-            Announcements.Children.Clear();
-            for (int d = 0; d < i; d++)
-            {
-                Console.WriteLine(announcementList[d]);
-                Announcements.Children.Add(new Button { Text = announcementList[d] });
-            }
+            //List<string> announcementList = AboutPage.announcementList;
+            //int i = announcementList.Count();
+            //Announcements.Children.Clear();
+            //for (int d = 0; d < i; d++)
+            //{
+            //    Console.WriteLine(announcementList[d]);
+            //    Announcements.Children.Add(new Button { Text = announcementList[d] });
+            //}
         }
     }
 }

@@ -58,7 +58,7 @@
                HorizontalOptions="Center"
                TextColor="DarkRed"
                IsVisible="false"/>
-        <ActivityIndicator x:Name="activityIndicator" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Color="{AppThemeBinding Light=LightGray, Dark=#FFFFFF}"/>
+        <ActivityIndicator x:Name="activityIndicator" VerticalOptions="Start" Grid.Row="3" Grid.Column="2" Grid.ColumnSpan="2" Color="{AppThemeBinding Light=LightGray, Dark=#FFFFFF}" Margin="40"/>
     </Grid>
     <!--<ContentPage.Content>
         <StackLayout Padding="10,0,10,0" VerticalOptions="Center">
