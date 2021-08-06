@@ -35,15 +35,40 @@
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
+            </CollectionView.ItemTemplate>0 ur mom
         </CollectionView>
     </RefreshView>-->
-    <Grid>
+        <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="20"/>
+        </Grid.ColumnDefinitions>
         <StackLayout Padding="5, 10, 5, 0">
-            <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold"/>
-            <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
-                <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" x:Name="Announcements">
-                    
+            <BoxView Color="Red" Grid.Column="0" Grid.Row="0"/>
+            <BoxView Color="Yellow" Grid.Column="1" Grid.Row="2"/>
+            <BoxView Color="Orange" Grid.Column="2" Grid.Row="2"/>
+            <!--<BoxView Color=""/>-->
+            <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold" Grid.Row="1" Grid.Column="1"/>
+            <Label Text="Testing" Grid.Column="1" Grid.Row="1"/>
+            <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="2" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="1" HorizontalOptions="Fill">
+                <ListView IsEnabled="True" VerticalScrollBarVisibility="Always" x:Name="Announcements" Grid.Row="2" Grid.Column="1">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout>
+                                    <Label Text="Testing 123"/>
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
                 </ListView>
             </Frame>
         </StackLayout>

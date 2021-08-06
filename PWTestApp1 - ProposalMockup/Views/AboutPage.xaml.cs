@@ -139,14 +139,14 @@ namespace PWTestApp1___ProposalMockup.Views
                 }
             }
 
-            Console.WriteLine("Its working i think");
-            Announcements.Children.Clear();
-            int x = Convert.ToInt32(buttonNum.Text);
-            while (x > 0)
-            {
-                Announcements.Children.Add(new Button { Text = "Announcement" });
-                x--;
-            }
+            //Console.WriteLine("Its working i think");
+            //Announcements.Children.Clear();
+            //int x = Convert.ToInt32(buttonNum.Text);
+            //while (x > 0)
+            //{
+            //    Announcements.Children.Add(new Button { Text = "Announcement" });
+            //    x--;
+            //}
         }
     }
 }
