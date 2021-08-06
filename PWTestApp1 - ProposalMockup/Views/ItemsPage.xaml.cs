@@ -3,6 +3,7 @@ using PWTestApp1___ProposalMockup.ViewModels;
 using PWTestApp1___ProposalMockup.Views;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -24,7 +25,8 @@ namespace PWTestApp1___ProposalMockup.Views
 
             BindingContext = _viewModel = new ItemsViewModel();
             Whymustzizhuoforcemetodothisiamverysadsadsadsad();
-            InitList();
+            //InitList();
+            T();
         }
 
         protected override void OnAppearing()
@@ -33,15 +35,46 @@ namespace PWTestApp1___ProposalMockup.Views
             _viewModel.OnAppearing();
         }
 
-        void InitList()
+        //void InitList()
+        //{
+        //    Items = AboutPage.announcementList;
+
+        //    Announcements.ItemsSource = Items;
+        //}
+
+        public class Player
         {
-            Items = new List<string>();
+            public string Name { get; set; }
+            public string Position { get; set; }
+            public string Team { get; set; }
+        }
 
-            Items.Add("Item1");
-            Items.Add("Item2");
-            Items.Add("Item3");
+        public static class PlayersFactory
+        {
+            public static IList<Player> Players { get; set; }
 
-            Announcements.ItemsSource = Items;
+            static PlayersFactory()
+            {
+                Players = new ObservableCollection<Player>()
+                {
+                    new Player
+                    {
+                        Name = "Gamer",
+                        Position = "gamer",
+                        Team = "Gamer gang"
+                    }
+                };
+            }
+        }
+
+        private void U()
+        {
+            //PlayersFactory.Players.Add
+        }
+
+        private void T()
+        {
+            Announcements.ItemsSource = PlayersFactory.Players;
         }
 
         private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
