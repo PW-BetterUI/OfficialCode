@@ -16,21 +16,34 @@ namespace PWTestApp1___ProposalMockup.Views
     {
         ItemsViewModel _viewModel;
 
+        List<string> Items;
+
         public ItemsPage()
         {
             InitializeComponent();
 
             BindingContext = _viewModel = new ItemsViewModel();
             Whymustzizhuoforcemetodothisiamverysadsadsadsad();
-            
+            InitList();
         }
-
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
         }
+
+        void InitList()
+        {
+            Items = new List<string>();
+
+            Items.Add("Item1");
+            Items.Add("Item2");
+            Items.Add("Item3");
+
+            Announcements.ItemsSource = Items;
+        }
+
         private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
         {
             //List<string> announcementList = AboutPage.announcementList;

@@ -120,9 +120,6 @@
     <AndroidResource Include="Resources\drawable\hci_logo2.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\hci_logo3_transparent.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\home_icon2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -139,10 +136,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\announcements_icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\drawable\hci_logo3_transparent.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

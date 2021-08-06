@@ -46,15 +46,7 @@
             </Frame>
         </StackLayout>-->
         <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" x:Name="Announcements">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackLayout x:DataType="model:Item">
-                        <StackLayout Padding="10" x:DataType="model:Item">
-                            
-                        </StackLayout>
-                    </StackLayout>
-                </DataTemplate>
-            </ListView.ItemTemplate>
+            
         </ListView>
     </Grid>
 </ContentPage>
