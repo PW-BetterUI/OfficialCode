@@ -2,12 +2,14 @@
 using PWTestApp1___ProposalMockup.Views;
 using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace PWTestApp1___ProposalMockup.ViewModels
 {
+
     public class ItemsViewModel : BaseViewModel
     {
         private Item _selectedItem;
@@ -19,7 +21,7 @@ namespace PWTestApp1___ProposalMockup.ViewModels
 
         public ItemsViewModel()
         {
-            Title = "Browse";
+            Title = "Announcements";
             Items = new ObservableCollection<Item>();
             LoadItemsCommand = new Command(async () => await ExecuteLoadItemsCommand());
 
