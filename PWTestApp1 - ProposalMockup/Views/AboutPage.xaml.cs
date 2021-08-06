@@ -22,7 +22,10 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public static string announcements;
         public static bool announcementExist;
+
         public static List<string> announcementList = new List<string>();
+        public static List<string> announcementContent = new List<string>();
+        public static List<string> announcementSender = new List<string>();
 
         public static int idPosition;
 
@@ -104,26 +107,15 @@ namespace PWTestApp1___ProposalMockup.Views
                                 if (unreadAnnouncementIds.Contains(row_[10].ToString()))
                                 {
                                     announcementList.Add(row_[0].ToString());
+                                    announcementSender.Add(row_[1].ToString());
+                                    announcementContent.Add(row_[9].ToString());
                                 }
                             }
-
-                            //foreach (string s in unreadAnnouncementIds)
-                            //{
-                            //    foreach (var row_ in values_)
-                            //    {
-                            //        if (s == row_[10].ToString())
-                            //        {
-                            //            announcementList.Add(row[0].ToString());
-                            //        }
-                            //    }
-                            //}
                         }
                     }
                     i++;
                 }
             }
-
-            //announcements = buttonNum.Text;
         }
 
         private void Buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked(object sender, EventArgs e)
