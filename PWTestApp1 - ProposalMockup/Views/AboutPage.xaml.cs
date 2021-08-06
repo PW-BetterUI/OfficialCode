@@ -77,14 +77,14 @@ namespace PWTestApp1___ProposalMockup.Views
                             if (ids.Contains(','))
                             {
                                 ids = ids.Replace(',', ' ');
-                                Console.WriteLine(ids);
+                                unreadAnnouncementIds = ids.Split(' ').ToList();
                             }
                             else
                             {
                                 unreadAnnouncementIds.Add(ids);
                             }
 
-                            var range_ = $"{announcementLogSheet}!A2:K4";
+                            var range_ = $"{announcementLogSheet}!A2:K";
                             var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range_);
 
                             var response_ = request_.Execute();
@@ -92,7 +92,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
                             foreach (var row_ in values_)
                             {
-                                if (/*unreadAnnouncementIds.Contains(row[10].ToString())*/ 1 == 1)
+                                if (unreadAnnouncementIds.Contains(row_[10].ToString()))
                                 {
                                     announcementList.Add(row_[0].ToString());
                                 }
@@ -121,6 +121,8 @@ namespace PWTestApp1___ProposalMockup.Views
         {   
             announcementList.Clear();
             Announcements.Children.Clear();
+            buttontoinsertmoreannouncementsthisisthelongestnameever.IsEnabled = false;
+
             await Task.Run(() => GetAnnouncements());
 
             //announcements = buttonNum.Text;
