@@ -69,7 +69,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         private void U()
         {
-            //PlayersFactory.Players.Add
+            //PlayersFactory.Players.Add{new Player };
         }
 
         private void T()

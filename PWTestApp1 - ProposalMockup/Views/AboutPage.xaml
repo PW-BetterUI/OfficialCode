@@ -16,7 +16,7 @@
     </ContentPage.Resources>
 
     <ContentPage.ToolbarItems>
-        <ToolbarItem IconImageSource="hci_logo3_transparent.png" Order="Primary" Priority="0"/>
+        <ToolbarItem IconImageSource="hci_transparent_logo.png" Order="Primary" Priority="0"/>
     </ContentPage.ToolbarItems>
 
     <Grid>
