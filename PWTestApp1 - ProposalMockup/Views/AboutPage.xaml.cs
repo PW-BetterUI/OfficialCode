@@ -21,7 +21,7 @@ namespace PWTestApp1___ProposalMockup.Views
         static SheetsService service;
 
         public static string announcements;
-        public static bool announcementExist = false;
+        public static bool announcementExist;
         public static List<string> announcementList = new List<string>();
 
         public static int idPosition;
@@ -30,6 +30,13 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             StackLayout stackLayout = Announcements;
             InitializeComponent();
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            announcementExist = false;
+            MainTask();
         }
 
         public void countButton(System.Object sender, System.EventArgs e)
@@ -68,6 +75,8 @@ namespace PWTestApp1___ProposalMockup.Views
                         string ids = row[0].ToString();
                         if(ids == "0")
                         {
+
+                            Console.WriteLine("yeah this works why isn't it working now");
                             break;
                         }
                         else
@@ -117,19 +126,25 @@ namespace PWTestApp1___ProposalMockup.Views
             //announcements = buttonNum.Text;
         }
 
-        private async void Buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked(object sender, EventArgs e)
-        {   
+        private void Buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked(object sender, EventArgs e)
+        {
+            MainTask();
+        }
+
+        private async void MainTask()
+        {
             announcementList.Clear();
             Announcements.Children.Clear();
-            buttontoinsertmoreannouncementsthisisthelongestnameever.IsEnabled = false;
+
+            NoUnreadAnnouncementsText.IsVisible = false;
+            LoadingAnnouncementsText.IsVisible = true;
+            LoadingAnnouncementsActivityIndicator.IsRunning = true;
 
             await Task.Run(() => GetAnnouncements());
 
-            //announcements = buttonNum.Text;
-            //announcementList.Add(announcements);
             if (!announcementExist)
             {
-                Announcements.Children.Add(new Label { Text = "No announcements yet. Yay!", TextColor = Color.Black, HorizontalOptions = LayoutOptions.Center, VerticalOptions = LayoutOptions.Center });
+                NoUnreadAnnouncementsText.IsVisible = true;
             }
             else
             {
@@ -140,7 +155,9 @@ namespace PWTestApp1___ProposalMockup.Views
                     Announcements.Children.Add(new Button { Text = announcementList[d] });
                 }
             }
-            buttontoinsertmoreannouncementsthisisthelongestnameever.IsEnabled = true;
+
+            LoadingAnnouncementsText.IsVisible = false;
+            LoadingAnnouncementsActivityIndicator.IsRunning = false;
         }
     }
 }

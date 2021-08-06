@@ -31,7 +31,9 @@ namespace PWTestApp1___ProposalMockup.Views
 
         private void Login(System.Object sender, System.EventArgs e)
         {
+            LoginButton.IsEnabled = false;
             CheckEntries(idField.Text, passwordField.Text);
+            LoginButton.IsEnabled = true;
         }
 
         public async void CheckEntries(string id, string pass)
