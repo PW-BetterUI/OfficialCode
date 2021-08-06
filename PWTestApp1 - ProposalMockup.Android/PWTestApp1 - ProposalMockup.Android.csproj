@@ -137,7 +137,7 @@
     <AndroidResource Include="Resources\drawable\announcements_icon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\drawable\hci_logo3_transparent.png" />
+    <AndroidResource Include="Resources\drawable\hci_transparent_logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
