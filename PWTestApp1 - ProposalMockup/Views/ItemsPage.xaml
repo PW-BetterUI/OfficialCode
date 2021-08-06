@@ -45,8 +45,32 @@
                 
             </Frame>
         </StackLayout>-->
-        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" x:Name="Announcements">
-            
+        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" x:Name="Announcements">
+            <ListView.Header>
+                <ContentView Padding="0,5" BackgroundColor="White">
+                    <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
+                   Text="Unread Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                </ContentView>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid x:Name="AnnouncementListGrid">
+                            <!--<Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition  />
+                            </Grid.ColumnDefinitions>-->
+                            <StackLayout VerticalOptions="FillAndExpand" Padding="0, 0, 10, 0" Grid.Column="0">
+                                <Label FontSize="17"  Text="{Binding Name}" />
+                                <Label FontSize="12" Text="{Binding Team, StringFormat='Team: {0}'}" />
+                            </StackLayout>
+                            <StackLayout VerticalOptions="End"  Padding="0, 0, 10, 0"  Grid.Column="1">
+                                <Label  FontSize="12"  Text="{Binding Position, StringFormat='Position: {0}'}" />
+                            </StackLayout>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
     </Grid>
 </ContentPage>
