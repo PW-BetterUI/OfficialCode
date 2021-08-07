@@ -21,8 +21,20 @@ namespace PWTestApp1___ProposalMockup.Views
             if (DarkMode.On == true)
             {
                 Console.WriteLine("DarkMode on");
-                Yes.Text = "Its WOrking nice";
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
+            }
+            else if (DarkMode.On == false)
+            {
+                Application.Current.UserAppTheme = OSAppTheme.Light;
+            }
+
+            if (Settings2.On == true)
+            {
+                //To Be Added
+            }
+            else if (Settings2.On == false)
+            {
+                //To Be Added
             }
         }
     }
