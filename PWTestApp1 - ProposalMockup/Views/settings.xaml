@@ -11,7 +11,7 @@
         </StackLayout>-->
         <TableView>
             <TableSection Title="ABC">
-                <SwitchCell Text="Dark Mode" x:Name="DarkMode"/>
+                <SwitchCell  x:Name="DarkMode"/>
                 <SwitchCell Text="Notifications" IsEnabled="True" x:Name="Settings2"/>
                 <TextCell Text="Save Changes" x:Name="Yes" Tapped="Yes_Tapped"/>
 
