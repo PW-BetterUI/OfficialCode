@@ -20,9 +20,9 @@ namespace PWTestApp1___ProposalMockup.Views
     {
         ItemsViewModel _viewModel;
 
-        private static List<string> announcementList = AboutPage.announcementList;
-        private static List<string> announcementSender = AboutPage.announcementSender;
-        private static List<string> announcementContent = AboutPage.announcementContent;
+        private static List<string> announcementList = new List<string>();
+        private static List<string> announcementSender = new List<string>();
+        private static List<string> announcementContent = new List<string>();
 
         public ItemsPage()
         {
@@ -36,10 +36,14 @@ namespace PWTestApp1___ProposalMockup.Views
             base.OnAppearing();
             _viewModel.OnAppearing();
 
+            announcementList.Clear();
+            announcementSender.Clear();
+            announcementContent.Clear();
+
             AddAnnouncements();
         }
 
-        public class Player
+        public class Announcement
         {
             public string AnnouncementTitle { get; set; }
             public string Content { get; set; }
@@ -48,11 +52,11 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public static class AnnouncementsInit
         {
-            public static IList<Player> Players { get; set; }
+            public static IList<Announcement> Announcement { get; set; }
 
             static AnnouncementsInit()
             {
-                Players = new ObservableCollection<Player>();
+                Announcement = new ObservableCollection<Announcement>();
             }
         }
 
@@ -62,24 +66,23 @@ namespace PWTestApp1___ProposalMockup.Views
             //announcementSender.Clear();
             //announcementContent.Clear();
 
-            //announcementList = AboutPage.announcementList;
-            //announcementSender = AboutPage.announcementSender;
-            //announcementContent = AboutPage.announcementContent;
+            announcementList = AboutPage.announcementList;
+            announcementSender = AboutPage.announcementSender;
+            announcementContent = AboutPage.announcementContent;
 
             int i = 0;
             foreach (string ann in announcementList)
             {
-                AnnouncementsInit.Players.Add(new Player { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
+                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
                 i++;
             }
-            //PlayersFactory.Players.Add(new Player { AnnouncementTitle = "Gamer", Position = "Gamer occupation", Team = "Gamer gang" });
 
             ItemsInit();
         }
 
         private void ItemsInit()
         {
-            Announcements.ItemsSource = AnnouncementsInit.Players;
+            Announcements.ItemsSource = AnnouncementsInit.Announcement;
         }
 
         private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
