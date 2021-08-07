@@ -26,7 +26,8 @@ namespace PWTestApp1___ProposalMockup.Views
 
         public LoginPage()
         {
-            InitializeComponent();
+
+        InitializeComponent();
         }
 
         private void Login(System.Object sender, System.EventArgs e)

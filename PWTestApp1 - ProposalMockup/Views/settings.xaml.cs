@@ -10,26 +10,29 @@ using Xamarin.Forms.Xaml;
 namespace PWTestApp1___ProposalMockup.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
+
     public partial class settings : ContentPage
     {
+        public static string preferences = "System Preferences";
+
         public settings()
         {
             InitializeComponent();
         }
 
-        public bool ThemePreference
+        protected override void OnAppearing()
         {
-            get => Preferences.Get(nameof(ThemePreference), false);
-            set
+            base.OnAppearing();
+
+            string AppPref = Preferences.Get("SystemThemePreference", "Dark");
+            if (AppPref == "Dark")
             {
-                Preferences.Set(nameof(ThemePreference), value);
-                OnPropertyChanged(nameof(ThemePreference));
+                PreferenceSwitch.IsToggled = true;
             }
-        }
-
-        private void SavePreferences(object sender, EventArgs e)
-        {
-
+            else if (AppPref == "Light")
+            {
+                PreferenceSwitch.IsToggled = false;
+            }
         }
 
         void DarkModeToggled(object sender, ToggledEventArgs e)
@@ -38,10 +41,12 @@ namespace PWTestApp1___ProposalMockup.Views
             {
                 Console.WriteLine("DarkMode on");
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
+                Preferences.Set("SystemThemePreference", "Dark");
             }
             else if (e.Value == false)
             {
                 Application.Current.UserAppTheme = OSAppTheme.Light;
+                Preferences.Set("SystemThemePreference", "Light");
             }
         }
     }

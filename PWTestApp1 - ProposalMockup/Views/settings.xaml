@@ -17,8 +17,8 @@
                     </ViewCell>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Dark Mode" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 70, 0"/>
-                            <Switch OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center" Toggled="DarkModeToggled" IsToggled="{Binding ThemePreference}"/>
+                            <Label Text="Dark Mode" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 70, 0" x:Name="toggle"/>
+                            <Switch x:Name="PreferenceSwitch" OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center" Toggled="DarkModeToggled"/>
                         </StackLayout>
                     </ViewCell>
                     <ViewCell>
@@ -30,6 +30,6 @@
                 </TableSection>
             </TableRoot>
         </TableView>
-        <Button Text="Save Preferences and Exit" Clicked="SavePreferences"/>
+        <!--<Button Text="Save Preferences and Exit" Clicked="SavePreferences"/>-->
     </StackLayout>
 </ContentPage>
