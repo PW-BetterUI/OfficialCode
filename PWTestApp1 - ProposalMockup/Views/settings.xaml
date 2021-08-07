@@ -2,28 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.settings"
+             xmlns:vm="clr-namespace:PWTestApp1___ProposalMockup.ViewModels"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
+    <ContentPage.BindingContext>
+        <vm:SettingsViewModel/>
+    </ContentPage.BindingContext>
+
     <StackLayout>
-        <!--<StackLayout Padding="5, 10, 5, 0">
-            <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold"/>
-            <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
-                
-            </Frame>
-        </StackLayout>-->
-        
-        <!--<TableView>
-            <TableSection Title="ABC">
-                <ViewCell>
-                    <StackLayout Orientation="Horizontal">
-                        <Label Text="Gamer"/>
-                    </StackLayout>
-                </ViewCell>
-                
-                <SwitchCell Text="Dark Mode" OnColor="Red" x:Name="DarkMode"/>
-                <SwitchCell Text="Notifications" IsEnabled="True" x:Name="Settings2"/>
-                <TextCell Text="Save Changes" x:Name="Yes" Tapped="Yes_Tapped"/>
-            </TableSection>
-        </TableView>-->
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection>
@@ -33,7 +18,7 @@
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Dark Mode" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 70, 0"/>
-                            <Switch OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center" Toggled="DarkModeToggled"/>
+                            <Switch OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center" Toggled="DarkModeToggled" IsToggled="{Binding ThemePreference}"/>
                         </StackLayout>
                     </ViewCell>
                     <ViewCell>

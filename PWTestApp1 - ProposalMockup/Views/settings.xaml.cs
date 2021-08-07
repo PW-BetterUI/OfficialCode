@@ -17,9 +17,19 @@ namespace PWTestApp1___ProposalMockup.Views
             InitializeComponent();
         }
 
+        public bool ThemePreference
+        {
+            get => Preferences.Get(nameof(ThemePreference), false);
+            set
+            {
+                Preferences.Set(nameof(ThemePreference), value);
+                OnPropertyChanged(nameof(ThemePreference));
+            }
+        }
+
         private void SavePreferences(object sender, EventArgs e)
         {
-            Preferences.Set("appThemePreferences", "light");
+
         }
 
         void DarkModeToggled(object sender, ToggledEventArgs e)
