@@ -5,6 +5,9 @@
     <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
     <OutputType>Library</OutputType>
     <RootNamespace>PWTestApp1___ProposalMockup</RootNamespace>
+    <AssemblyName>IESP</AssemblyName>
+    <ApplicationIcon>2021-08-02__2_-removebg-preview.ico</ApplicationIcon>
+    <SignAssembly>false</SignAssembly>
   </PropertyGroup>
 
   <ItemGroup>
