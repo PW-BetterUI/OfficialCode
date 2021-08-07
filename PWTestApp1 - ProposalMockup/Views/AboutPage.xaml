@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.AboutPage"
              xmlns:vm="clr-namespace:PWTestApp1___ProposalMockup.ViewModels"
-             Title="{Binding Title}">
+             Title="{Binding Title}"
+             Background="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     
     <ContentPage.BindingContext>
         <vm:AboutViewModel />

@@ -4,7 +4,8 @@
        xmlns:local="clr-namespace:PWTestApp1___ProposalMockup.Views"
        Title="PWTestApp1___ProposalMockup"
        x:Class="PWTestApp1___ProposalMockup.AppShell"
-       BackgroundColor="Red">
+       BackgroundColor="Red"
+       FlyoutBackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
 
     <!--
         The overall app visual hierarchy is defined here, along with navigation.
@@ -43,7 +44,7 @@
                         <VisualStateGroup x:Name="CommonStates">
                             <VisualState x:Name="Normal">
                                 <VisualState.Setters>
-                                    <Setter Property="BackgroundColor" Value="White" />
+                                    <Setter Property="BackgroundColor" Value="{AppThemeBinding Light=White, Dark=#1A1A1A}" />
                                     <Setter TargetName="FlyoutItemLabel" Property="Label.TextColor" Value="{StaticResource Primary}" />
                                 </VisualState.Setters>
                             </VisualState>
@@ -82,7 +83,7 @@
         https://docs.microsoft.com/dotnet/api/xamarin.forms.shellgroupitem.flyoutdisplayoptions?view=xamarin-forms
     -->
     <FlyoutItem Title="Home" Icon="home_icon2.png">
-        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" />
+        <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}" Shell.BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"/>
     </FlyoutItem>
     <FlyoutItem Title="Announcements" Icon="announcements_icon.ico">
         <ShellContent Route="BrowseItemsPage" ContentTemplate="{DataTemplate local:ItemsPage}"/>

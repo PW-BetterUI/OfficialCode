@@ -5,6 +5,7 @@
              Title="{Binding Title}"
              xmlns:local="clr-namespace:PWTestApp1___ProposalMockup.ViewModels"  
              xmlns:model="clr-namespace:PWTestApp1___ProposalMockup.Models"  
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"
              x:Name="BrowseItemsPage">
     
     <!--
@@ -39,11 +40,11 @@
         </CollectionView>
     </RefreshView>-->
     <Grid>
-        <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected" >
+        <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected">
             <ListView.Header>
-                <ContentView Padding="0,5" BackgroundColor="White">
+                <ContentView Padding="0,5"  BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
                     <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
-                   Text="Unread Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
+                   Text="Unread Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                 </ContentView>
             </ListView.Header>
             <ListView.ItemTemplate>

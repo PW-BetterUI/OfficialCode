@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -16,25 +16,22 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             InitializeComponent();
         }
-        public void Yes_Tapped(object sender, EventArgs e)
+
+        private void SavePreferences(object sender, EventArgs e)
         {
-            if (DarkMode.On == true)
+            Preferences.Set("appThemePreferences", "light");
+        }
+
+        void DarkModeToggled(object sender, ToggledEventArgs e)
+        {
+            if(e.Value == true)
             {
                 Console.WriteLine("DarkMode on");
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
             }
-            else if (DarkMode.On == false)
+            else if (e.Value == false)
             {
                 Application.Current.UserAppTheme = OSAppTheme.Light;
-            }
-
-            if (Settings2.On == true)
-            {
-                //To Be Added
-            }
-            else if (Settings2.On == false)
-            {
-                //To Be Added
             }
         }
     }

@@ -5,6 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="PWTestApp1___ProposalMockup.Views.LoginPage"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"
              Shell.NavBarIsVisible="False">
     <Grid>
         <Grid.RowDefinitions>
@@ -45,8 +46,8 @@
             Padding="0, 80, 0, 0"/>
 
         <StackLayout Grid.Row="2" Grid.RowSpan="1" Grid.Column="1" Grid.ColumnSpan="4" HorizontalOptions="FillAndExpand">
-            <Entry x:Name="idField" Placeholder="Student ID" PlaceholderColor="{AppThemeBinding Dark=#FFA2A4A5, Light=#FFA2A4A5}" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
-            <Entry x:Name="passwordField" Placeholder="Password" PlaceholderColor="{AppThemeBinding Dark=#FFA2A4A5, Light=#FFA2A4A5}" IsPassword="True" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Entry x:Name="idField" Placeholder="Student ID" PlaceholderColor="{AppThemeBinding Dark=LightGray, Light=#FFA2A4A5}" TextColor="{AppThemeBinding Light=Black, Dark=White}" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
+            <Entry x:Name="passwordField" Placeholder="Password" PlaceholderColor="{AppThemeBinding Dark=LightGray, Light=#FFA2A4A5}" TextColor="{AppThemeBinding Light=Black, Dark=White}" IsPassword="True" ClearButtonVisibility="WhileEditing" IsSpellCheckEnabled="False"/>
             <Button x:Name="LoginButton" Text="Login" Clicked="Login"/>
         </StackLayout>
         <Label x:Name="errorMsg" 
