@@ -94,7 +94,10 @@
     <FlyoutItem Title="Settings" Icon="">
         <ShellContent Route="Settings" ContentTemplate="{DataTemplate local:settings}"/>
     </FlyoutItem>
-    <!--<FlyoutItem Title="Option 2" Icon="">
+    <FlyoutItem Title="SafeEntry" Icon="">
+        <ShellContent Route="safeEntry" ContentTemplate="{DataTemplate local:safeEntry}"/>
+    </FlyoutItem>
+        <!--<FlyoutItem Title="Option 2" Icon="">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>
     <FlyoutItem Title="Option 3" Icon="">
