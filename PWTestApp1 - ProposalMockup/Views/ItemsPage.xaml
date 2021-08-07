@@ -39,12 +39,6 @@
         </CollectionView>
     </RefreshView>-->
     <Grid>
-        <!--<StackLayout Padding="5, 10, 5, 0">
-            <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold"/>
-            <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
-                
-            </Frame>
-        </StackLayout>-->
         <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected" >
             <ListView.Header>
                 <ContentView Padding="0,5" BackgroundColor="White">

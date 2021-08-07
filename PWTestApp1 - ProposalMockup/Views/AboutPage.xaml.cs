@@ -103,6 +103,7 @@ namespace PWTestApp1___ProposalMockup.Views
                             var response_ = request_.Execute();
                             var values_ = response_.Values;
 
+                            int a = 0;
                             foreach (var row_ in values_)
                             {
                                 if (unreadAnnouncementIds.Contains(row_[10].ToString()))
@@ -110,8 +111,17 @@ namespace PWTestApp1___ProposalMockup.Views
                                     announcementList.Add(row_[0].ToString());
                                     announcementSender.Add(row_[1].ToString());
                                     announcementContent.Add(row_[9].ToString());
-                                    //announcementTargetAudience.Add(row_[11].ToString());
+
+                                    ItemsPage.announcementList = announcementList;
+                                    ItemsPage.announcementSender = announcementSender;
+                                    ItemsPage.announcementContent = announcementContent;
+
+                                    //foreach (string s in announcementContent)
+                                    //{
+                                    //    Console.WriteLine(s);
+                                    //}
                                 }
+                                a++;
                             }
                         }
                     }
@@ -136,6 +146,11 @@ namespace PWTestApp1___ProposalMockup.Views
 
             await Task.Run(() => GetAnnouncements());
 
+            foreach(string s in announcementList)
+            {
+                Console.WriteLine(s);
+            }
+
             if (!announcementExist)
             {
                 NoUnreadAnnouncementsText.IsVisible = true;
@@ -145,8 +160,9 @@ namespace PWTestApp1___ProposalMockup.Views
                 int i = announcementList.Count();
                 for (int d = 0; d < i; d++)
                 {
-                    Console.WriteLine(announcementList[d]);
+                    //Console.WriteLine(announcementList[d]);
                     Announcements.Children.Add(new Button { Text = announcementList[d] });
+                    Console.WriteLine(announcementContent[d]);
                 }
             }
 
