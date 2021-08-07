@@ -16,5 +16,14 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             InitializeComponent();
         }
+        public void Yes_Tapped(object sender, EventArgs e)
+        {
+            if (DarkMode.On == true)
+            {
+                Console.WriteLine("DarkMode on");
+                Yes.Text = "Its WOrking nice";
+                Application.Current.UserAppTheme = OSAppTheme.Dark;
+            }
+        }
     }
 }
