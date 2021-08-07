@@ -23,6 +23,7 @@ namespace PWTestApp1___ProposalMockup.Views
         private static List<string> announcementList = new List<string>();
         private static List<string> announcementSender = new List<string>();
         private static List<string> announcementContent = new List<string>();
+        private static List<string> announcementTargetAudience = new List<string>();
 
         public ItemsPage()
         {
@@ -36,10 +37,6 @@ namespace PWTestApp1___ProposalMockup.Views
             base.OnAppearing();
             _viewModel.OnAppearing();
 
-            announcementList.Clear();
-            announcementSender.Clear();
-            announcementContent.Clear();
-
             AddAnnouncements();
         }
 
@@ -47,6 +44,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             public string AnnouncementTitle { get; set; }
             public string Content { get; set; }
+            public string TargetAudience { get; set; }
             public string Priority { get; set; }
         }
 
@@ -62,13 +60,14 @@ namespace PWTestApp1___ProposalMockup.Views
 
         private void AddAnnouncements()
         {
-            //announcementList.Clear();
-            //announcementSender.Clear();
-            //announcementContent.Clear();
+            announcementList.Clear();
+            announcementSender.Clear();
+            announcementContent.Clear();
 
             announcementList = AboutPage.announcementList;
             announcementSender = AboutPage.announcementSender;
             announcementContent = AboutPage.announcementContent;
+            announcementTargetAudience = AboutPage.announcementTargetAudience;
 
             int i = 0;
             foreach (string ann in announcementList)
@@ -85,16 +84,10 @@ namespace PWTestApp1___ProposalMockup.Views
             Announcements.ItemsSource = AnnouncementsInit.Announcement;
         }
 
-        private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
+        private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {
-            //List<string> announcementList = AboutPage.announcementList;
-            //int i = announcementList.Count();
-            //Announcements.Children.Clear();
-            //for (int d = 0; d < i; d++)
-            //{
-            //    Console.WriteLine(announcementList[d]);
-            //    Announcements.Children.Add(new Button { Text = announcementList[d] });
-            //}
+            var details = e.Item as Announcement;
+            await Navigation.PushAsync(new ItemDetailPage(details.AnnouncementTitle, details.Content, details.Priority, details.TargetAudience));
         }
     }
 }

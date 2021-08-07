@@ -26,6 +26,7 @@ namespace PWTestApp1___ProposalMockup.Views
         public static List<string> announcementList = new List<string>();
         public static List<string> announcementContent = new List<string>();
         public static List<string> announcementSender = new List<string>();
+        public static List<string> announcementTargetAudience = new List<string>();
 
         public static int idPosition;
 
@@ -96,7 +97,7 @@ namespace PWTestApp1___ProposalMockup.Views
                                 unreadAnnouncementIds.Add(ids);
                             }
 
-                            var range_ = $"{announcementLogSheet}!A2:K";
+                            var range_ = $"{announcementLogSheet}!A2:M";
                             var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range_);
 
                             var response_ = request_.Execute();
@@ -109,6 +110,7 @@ namespace PWTestApp1___ProposalMockup.Views
                                     announcementList.Add(row_[0].ToString());
                                     announcementSender.Add(row_[1].ToString());
                                     announcementContent.Add(row_[9].ToString());
+                                    //announcementTargetAudience.Add(row_[11].ToString());
                                 }
                             }
                         }

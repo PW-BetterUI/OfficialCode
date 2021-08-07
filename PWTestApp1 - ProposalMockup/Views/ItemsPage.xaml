@@ -45,7 +45,7 @@
                 
             </Frame>
         </StackLayout>-->
-        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" x:Name="Announcements" >
+        <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected" >
             <ListView.Header>
                 <ContentView Padding="0,5" BackgroundColor="White">
                     <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
@@ -59,17 +59,9 @@
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="1*"/>
                             </Grid.ColumnDefinitions>
-                            <StackLayout VerticalOptions="FillAndExpand" Padding="5, 0, 0, 0" Grid.Column="0">
+                            <StackLayout VerticalOptions="FillAndExpand" Padding="5, 0, 0, 0" Grid.Column="0" x:Name="AnnouncementsList">
                                 <Label FontSize="17"  Text="{Binding AnnouncementTitle}" TextColor="{AppThemeBinding Light=Black, Dark=White}" FontAttributes="Bold" TextTransform="Uppercase" LineBreakMode="CharacterWrap"/>
                                 <Label FontSize="12" Text="{Binding Content}" TextColor="{AppThemeBinding Light=Black, Dark=LightGray}" LineBreakMode="TailTruncation" />
-
-                                <StackLayout.GestureRecognizers>
-                                    <TapGestureRecognizer 
-                                NumberOfTapsRequired="1"
-                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ItemsViewModel}}, Path=ItemTapped}"		
-                                CommandParameter="{Binding .}">
-                                    </TapGestureRecognizer>
-                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Grid>
                     </ViewCell>

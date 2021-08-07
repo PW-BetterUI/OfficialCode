@@ -6,10 +6,14 @@ namespace PWTestApp1___ProposalMockup.Views
 {
     public partial class ItemDetailPage : ContentPage
     {
-        public ItemDetailPage()
+        public ItemDetailPage(string Title, string Content, string Priority, string Audience)
         {
             InitializeComponent();
             BindingContext = new ItemDetailViewModel();
+
+            AnnouncementTitle.Text = Title;
+            TargetAudience.Text = Audience;
+            AnnouncementContent.Text = Content;
         }
     }
 }
