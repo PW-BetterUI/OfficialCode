@@ -1,21 +1,50 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PWTestApp1___ProposalMockup.Views.settings">
-    <Grid>
+             x:Class="PWTestApp1___ProposalMockup.Views.settings"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
+    <StackLayout>
         <!--<StackLayout Padding="5, 10, 5, 0">
             <Label Text="Unread Announcements" FontSize="24" TextColor="Red" FontAttributes="Bold"/>
             <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Row="1" Grid.RowSpan="3" Grid.Column="0" Grid.ColumnSpan="5" HorizontalOptions="Fill">
                 
             </Frame>
         </StackLayout>-->
-        <TableView>
+        
+        <!--<TableView>
             <TableSection Title="ABC">
-                <SwitchCell Text="Dark Mode" x:Name="DarkMode"/>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Gamer"/>
+                    </StackLayout>
+                </ViewCell>
+                
+                <SwitchCell Text="Dark Mode" OnColor="Red" x:Name="DarkMode"/>
                 <SwitchCell Text="Notifications" IsEnabled="True" x:Name="Settings2"/>
                 <TextCell Text="Save Changes" x:Name="Yes" Tapped="Yes_Tapped"/>
-
             </TableSection>
+        </TableView>-->
+        <TableView Intent="Settings">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <Label Text="Settings" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Dark Mode" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 70, 0"/>
+                            <Switch OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center" Toggled="DarkModeToggled"/>
+                        </StackLayout>
+                    </ViewCell>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Notifications" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 60, 0"/>
+                            <Switch OnColor="#D2042D" ThumbColor="Red" HorizontalOptions="Center"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
         </TableView>
-    </Grid>
+        <Button Text="Save Preferences and Exit" Clicked="SavePreferences"/>
+    </StackLayout>
 </ContentPage>
