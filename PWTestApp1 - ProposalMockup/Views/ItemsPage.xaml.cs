@@ -1,4 +1,6 @@
-﻿using PWTestApp1___ProposalMockup.Models;
+﻿using Google.Apis.Auth.OAuth2;
+using Google.Apis.Sheets.v4;
+using PWTestApp1___ProposalMockup.Models;
 using PWTestApp1___ProposalMockup.ViewModels;
 using PWTestApp1___ProposalMockup.Views;
 using System;
@@ -8,6 +10,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -17,64 +20,66 @@ namespace PWTestApp1___ProposalMockup.Views
     {
         ItemsViewModel _viewModel;
 
-        List<string> Items;
+        private static List<string> announcementList = AboutPage.announcementList;
+        private static List<string> announcementSender = AboutPage.announcementSender;
+        private static List<string> announcementContent = AboutPage.announcementContent;
 
         public ItemsPage()
         {
             InitializeComponent();
 
             BindingContext = _viewModel = new ItemsViewModel();
-            Whymustzizhuoforcemetodothisiamverysadsadsadsad();
-            //InitList();
-            T();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             _viewModel.OnAppearing();
+
+            AddAnnouncements();
         }
-
-        //void InitList()
-        //{
-        //    Items = AboutPage.announcementList;
-
-        //    Announcements.ItemsSource = Items;
-        //}
 
         public class Player
         {
-            public string Name { get; set; }
-            public string Position { get; set; }
-            public string Team { get; set; }
+            public string AnnouncementTitle { get; set; }
+            public string Content { get; set; }
+            public string Priority { get; set; }
         }
 
-        public static class PlayersFactory
+        public static class AnnouncementsInit
         {
             public static IList<Player> Players { get; set; }
 
-            static PlayersFactory()
+            static AnnouncementsInit()
             {
-                Players = new ObservableCollection<Player>()
-                {
-                    new Player
-                    {
-                        Name = "Gamer",
-                        Position = "gamer",
-                        Team = "Gamer gang"
-                    }
-                };
+                Players = new ObservableCollection<Player>();
             }
         }
 
-        private void U()
+        private void AddAnnouncements()
         {
-            //PlayersFactory.Players.Add{new Player };
+            //announcementList.Clear();
+            //announcementSender.Clear();
+            //announcementContent.Clear();
+
+            //announcementList = AboutPage.announcementList;
+            //announcementSender = AboutPage.announcementSender;
+            //announcementContent = AboutPage.announcementContent;
+
+            int i = 0;
+            foreach (string ann in announcementList)
+            {
+                AnnouncementsInit.Players.Add(new Player { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
+                i++;
+            }
+            //PlayersFactory.Players.Add(new Player { AnnouncementTitle = "Gamer", Position = "Gamer occupation", Team = "Gamer gang" });
+
+            ItemsInit();
         }
 
-        private void T()
+        private void ItemsInit()
         {
-            Announcements.ItemsSource = PlayersFactory.Players;
+            Announcements.ItemsSource = AnnouncementsInit.Players;
         }
 
         private void Whymustzizhuoforcemetodothisiamverysadsadsadsad()
