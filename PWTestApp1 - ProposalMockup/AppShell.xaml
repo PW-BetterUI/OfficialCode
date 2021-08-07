@@ -90,6 +90,9 @@
     <FlyoutItem Title="Results" Icon="">
         <ShellContent Route="Results" ContentTemplate="{DataTemplate local:Results}"/>
     </FlyoutItem>
+    <FlyoutItem Title="Settings" Icon="">
+        <ShellContent Route="Settings" ContentTemplate="{DataTemplate local:settings}"/>
+    </FlyoutItem>
     <!--<FlyoutItem Title="Option 2" Icon="">
         <ShellContent Route="AboutPage" ContentTemplate="{DataTemplate local:AboutPage}"/>
     </FlyoutItem>

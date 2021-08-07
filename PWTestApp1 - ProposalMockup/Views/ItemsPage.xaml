@@ -35,7 +35,7 @@
                         </StackLayout.GestureRecognizers>
                     </StackLayout>
                 </DataTemplate>
-            </CollectionView.ItemTemplate>
+            </CollectionView.ItemTemplate>0 ur mom
         </CollectionView>
     </RefreshView>-->
     <Grid>
@@ -45,7 +45,7 @@
                 
             </Frame>
         </StackLayout>-->
-        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" x:Name="Announcements">
+        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" x:Name="Announcements" >
             <ListView.Header>
                 <ContentView Padding="0,5" BackgroundColor="White">
                     <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
