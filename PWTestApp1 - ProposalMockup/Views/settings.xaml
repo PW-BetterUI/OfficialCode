@@ -9,28 +9,13 @@
                 
             </Frame>
         </StackLayout>-->
-        <ListView HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" x:Name="Settings" >
-            <ListView.Header>
-                <ContentView Padding="0,5" BackgroundColor="White">
-                    <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
-                   Text="Settings" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" />
-                </ContentView>
-            </ListView.Header>
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <Grid x:Name="SettingsListGrid">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="1*"/>
-                            </Grid.ColumnDefinitions>
-                            <StackLayout VerticalOptions="FillAndExpand" Padding="5, 0, 0, 0" Grid.Column="0">
-                                <Label FontSize="17"  Text="{Binding AnnouncementTitle}" TextColor="{AppThemeBinding Light=Gray, Dark=White}" FontAttributes="Bold" TextTransform="Uppercase" LineBreakMode="CharacterWrap"/>
-                                <Label FontSize="12" Text="{Binding Content}" TextColor="{AppThemeBinding Light=Black, Dark=LightGray}" LineBreakMode="TailTruncation" />
-                            </StackLayout>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <TableView>
+            <TableSection Title="ABC">
+                <SwitchCell Text="Dark Mode" x:Name="DarkMode"/>
+                <TextCell Text="Click Me" x:Name="Yes" Tapped="Yes_Tapped"/>
+                <SwitchCell Text="Notifications" IsEnabled="True"/>
+
+            </TableSection>
+        </TableView>
     </Grid>
 </ContentPage>
