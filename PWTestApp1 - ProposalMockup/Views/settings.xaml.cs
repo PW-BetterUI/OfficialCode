@@ -42,11 +42,13 @@ namespace PWTestApp1___ProposalMockup.Views
                 Console.WriteLine("DarkMode on");
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
                 Preferences.Set("SystemThemePreference", "Dark");
+                DisplayAlert("Alert", "Working", "Nice"); //Create DisplayAlert to check the problem with Zizhuo not getting Light Mode
             }
             else if (e.Value == false)
             {
                 Application.Current.UserAppTheme = OSAppTheme.Light;
                 Preferences.Set("SystemThemePreference", "Light");
+                DisplayAlert("Alert", "Working", "Nice"); //Create DisplayAlert to check the problem with Zizhuo not getting Light Mode
             }
         }
     }
