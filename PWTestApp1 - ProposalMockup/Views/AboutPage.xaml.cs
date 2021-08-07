@@ -168,7 +168,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     string content = announcementSender[d] + "+ " + announcementContent[d];
                     string priority = "N/A";
                     string Audience = "N/A";
-                    button.Clicked += delegate { Navigation.PushAsync(new ItemDetailPage(title, content, priority, Audience)); };
+                    button.Clicked += delegate { Navigation.PushAsync(new ItemDetailPage(title, content)); };
                 }
             }
 
