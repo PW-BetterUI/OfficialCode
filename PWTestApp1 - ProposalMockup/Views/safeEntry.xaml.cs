@@ -30,22 +30,12 @@ namespace PWTestApp1___ProposalMockup.Views
               {
                   Device.BeginInvokeOnMainThread(async () =>
                   {
-                      _ = await Navigation.PopAsync();
-                      Result = Convert.ToInt32(result);
+                      await Navigation.PopAsync();
+                      area.Text = result.Text;
                   });
               };
 
             await DisplayAlert("Alert", "Testing", "OK");
-
-            if (Result == 0)
-            {
-                area.Text = "Scanned Data will Appear Here";
-                Console.WriteLine("000!!!Wooooo Zizhuo </3 Siting");
-            }
-            else
-            {
-                await DisplayAlert("SafeEntry", "Cheked into Area " + Convert.ToString(Result), "OK");
-            }
         }
     }
 }
