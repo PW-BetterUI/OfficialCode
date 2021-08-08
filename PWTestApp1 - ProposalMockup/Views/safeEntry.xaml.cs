@@ -22,7 +22,7 @@ namespace PWTestApp1___ProposalMockup.Views
         }
 
         public int Result;
-        private async void Button_Pressed(object sender, EventArgs e)
+        private async void Scan(object sender, EventArgs e)
         {
             var scan = new ZXingScannerPage();
             await Navigation.PushAsync(scan);
@@ -32,10 +32,27 @@ namespace PWTestApp1___ProposalMockup.Views
                   {
                       await Navigation.PopAsync();
                       area.Text = result.Text;
+                      CheckIn();
+                      Console.WriteLine("Working");
                   });
               };
+        }
 
-            await DisplayAlert("Alert", "Testing", "OK");
+        public void CheckIn()
+        {
+            scan.IsVisible = false;
+            DisplayAlert("SafeEntry", "You have checked in", "OK");
+            checkOut.IsVisible = true;
+
+        }
+
+        private void CheckOut(object sender, EventArgs e)
+        {
+
+            checkOut.IsVisible = false;
+            DisplayAlert("SafeEntry", "You have checked out", "OK");
+            scan.IsVisible = true;
+            area.Text = "Scanned Data will Appear Here";
         }
     }
 }

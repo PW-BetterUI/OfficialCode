@@ -4,9 +4,9 @@
              x:Class="PWTestApp1___ProposalMockup.Views.safeEntry">
     <ContentPage.Content>
         <StackLayout x:Name="SafeEntryMenu">
-
             <Label TextColor="{AppThemeBinding Light=Black, Dark=White }" HeightRequest="225" x:Name="area" Text="Scanned Data will Appear Here"  FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Button Text="Scan" Pressed="Button_Pressed" Margin="10,0,10,0"/>
+            <Button Text="Scan" Pressed="Scan" Margin="10,0,10,0" CornerRadius="7" x:Name="scan" IsVisible="true"/>
+            <Button Text="Check Out" Pressed="CheckOut" IsVisible="False" x:Name="checkOut" Margin="10,0,10,0" CornerRadius="7"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
