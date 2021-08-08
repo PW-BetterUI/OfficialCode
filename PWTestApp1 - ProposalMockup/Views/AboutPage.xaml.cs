@@ -39,7 +39,6 @@ namespace PWTestApp1___ProposalMockup.Views
             StackLayout stackLayout = Announcements;
             InitializeComponent();
             clock();
-            date();
         }
 
         protected override void OnAppearing()
@@ -208,20 +207,10 @@ namespace PWTestApp1___ProposalMockup.Views
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>
-                timeLabel.Text = DateTime.Now.ToString("HH:mm:ss")
+                timeLabel.Text = DateTime.Now.ToString("dd MMMM yyyy \n HH:mm:ss")
                 );
 
 
-                return true;
-            });
-        }
-        public void date()
-        {
-            Device.StartTimer(TimeSpan.FromSeconds(1), () =>
-            {
-                Device.BeginInvokeOnMainThread(() =>
-                dateLabel.Text = DateTime.Now.ToString("dd MMMM yyyy")
-                );
                 return true;
             });
         }

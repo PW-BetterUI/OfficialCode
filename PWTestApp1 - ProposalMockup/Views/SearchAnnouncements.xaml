@@ -22,8 +22,8 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="{AppThemeBinding Light=Gray, Dark=White}" CornerRadius="60" Padding="0, 20, 0, 0"/>
-        <SearchBar x:Name="SearchAnnouncementBar" Grid.Row="1" Grid.Column="1" Scale="0.9" Margin="2, 0, 2, 0" Placeholder="Search for Announcements..." TextChanged="SearchBar_TextChanged"/>
+        <Frame Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" BackgroundColor="{AppThemeBinding Light=LightGray, Dark=DarkGray}" CornerRadius="7" Padding="0, 20, 0, 0" Margin="10, 0, 10, 0"/>
+        <SearchBar x:Name="SearchAnnouncementBar" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3"  Scale="1"  Margin="10, 0, 10, 0" Placeholder="Search for Announcements..." TextChanged="SearchBar_TextChanged"/>
 
         <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">
             <ListView.Header>

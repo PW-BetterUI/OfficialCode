@@ -40,10 +40,10 @@
     <MandroidI18n />
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>nepunepnep12</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>nepunepnep12</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>nepunepnep123</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -153,7 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
