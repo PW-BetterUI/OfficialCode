@@ -34,13 +34,17 @@ namespace PWTestApp1___ProposalMockup.Views
                       Result = Convert.ToInt32(result);
                   });
               };
+
+            await DisplayAlert("Alert", "Testing", "OK");
+
             if (Result == 0)
             {
                 area.Text = "Scanned Data will Appear Here";
+                Console.WriteLine("000!!!Wooooo Zizhuo </3 Siting");
             }
             else
             {
-                await DisplayAlert("SafeEntry", "Cheked into Area " +Convert.ToString(Result), "OK");
+                await DisplayAlert("SafeEntry", "Cheked into Area " + Convert.ToString(Result), "OK");
             }
         }
     }
