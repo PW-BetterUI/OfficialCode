@@ -35,6 +35,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             public string AnnouncementTitle { get; set; }
             public string Content { get; set; }
+            public string Tags { get; set; }
         }
 
         private void AddAnnouncements()
@@ -50,7 +51,7 @@ namespace PWTestApp1___ProposalMockup.Views
             int i = 0;
             foreach(string ann in announcementList)
             {
-                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
+                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i], Tags = ann + ' ' + announcementSender[i] + ' ' + announcementContent[i] });
                 i++;
             }
 
@@ -76,6 +77,12 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             var details = e.Item as Announcement;
             await Navigation.PushAsync(new ItemDetailPage(details.AnnouncementTitle, details.Content));
+        }
+
+        private void SearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var searchresult = AnnouncementsInit.Announcement.Where(c => c.Tags.ToLower().Contains(SearchAnnouncementBar.Text));
+            Announcements.ItemsSource = searchresult;
         }
     }
 }
