@@ -39,7 +39,7 @@
     <BundleAssemblies>false</BundleAssemblies>
     <MandroidI18n />
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidKeyStore>false</AndroidKeyStore>
     <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
@@ -153,7 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
+      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
