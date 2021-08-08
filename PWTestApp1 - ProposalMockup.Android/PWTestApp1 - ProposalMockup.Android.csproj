@@ -59,10 +59,10 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>nepunepnep12</AndroidSigningKeyPass>
-    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>nepunepnep12</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>nepunepnep123</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
