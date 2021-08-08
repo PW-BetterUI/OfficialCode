@@ -21,6 +21,7 @@ namespace PWTestApp1___ProposalMockup.Views
             DisplayAlert("Alert", "If QR Scanner shows white: \nGo to Settings and enable Camera for this app\nRelaunch the app", "OK");
         }
 
+        public int Result;
         private async void Button_Pressed(object sender, EventArgs e)
         {
             var scan = new ZXingScannerPage();
@@ -30,10 +31,17 @@ namespace PWTestApp1___ProposalMockup.Views
                   Device.BeginInvokeOnMainThread(async () =>
                   {
                       await Navigation.PopAsync();
-                      QRData.Text = result.Text;
-                  }
-                      );
+                      Result = Convert.ToInt32(result);
+                  });
               };
+            if (Result == 0)
+            {
+                area.Text = "Scanned Data will Appear Here";
+            }
+            else
+            {
+                await DisplayAlert("SafeEntry", "Cheked into Area " +Convert.ToString(Result), "OK");
+            }
         }
     }
 }
