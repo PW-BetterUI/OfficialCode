@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PWTestApp1___ProposalMockup.Views.safeEntry">
+             x:Class="PWTestApp1___ProposalMockup.Views.safeEntry"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.Content>
         <StackLayout x:Name="SafeEntryMenu">
             <Label TextColor="{AppThemeBinding Light=Black, Dark=White }" HeightRequest="225" x:Name="area" Text="Scanned Data will Appear Here"  FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>

@@ -10,12 +10,26 @@ using Xamarin.Forms.Xaml;
 namespace PWTestApp1___ProposalMockup.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
+	
 	public partial class Results : ContentPage
 	{
 		public Results ()
 		{
 			InitializeComponent ();
-			ABC.Text = "Zizhuo </3 Siting";
+
 		}
-	}
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+			if (Secondary1.IsVisible == true)
+			{
+				Secondary1.IsVisible = false;
+            }
+			else if (Secondary1.IsVisible == false)
+            {
+				Secondary1.IsVisible = true;
+
+			}
+        }
+    }
 }

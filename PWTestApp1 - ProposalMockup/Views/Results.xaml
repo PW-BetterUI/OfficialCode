@@ -1,13 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="PWTestApp1___ProposalMockup.Views.Results">
+             x:Class="PWTestApp1___ProposalMockup.Views.Results"
+             Title="Results"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" 
-                x:Name="ABC"/>
+        <StackLayout x:Name="stackLayout" Spacing="0" Padding="10,0,10,0">
+            <Label Text="Results" FontSize="Title" HorizontalOptions="Center" Padding="0,10,0,10" FontAttributes="Bold" TextColor="{AppThemeBinding Light=Black, Dark=White}"/>
+            <Button Text="Secondary 1" Clicked="Button_Clicked"/>
+            <StackLayout IsVisible="false" Padding="0,0,0,0" x:Name="Secondary1" >
+                <StackLayout  Spacing="1"  Padding="0,0,0,0" >
+                    
+                        <StackLayout Margin="10,0,10,0">
+                        <ListView>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout>
+                                        <Label Text="Term 1"/>
+                                        <Label Text="Term 1"/>
+                                        <Label Text="Term 1"/>
+                                        <Label Text="Term 1"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        </StackLayout>
+                    
+                </StackLayout>
+            </StackLayout>
+            <Button Text="Secondary 2"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
