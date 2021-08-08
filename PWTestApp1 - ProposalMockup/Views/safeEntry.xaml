@@ -3,9 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.safeEntry">
     <ContentPage.Content>
-        <StackLayout>
-            <Button Text="Scan" Pressed="Button_Pressed"/>
-            <Label Text="Scanned Data Will Appear Here!" x:Name="QRData"/>
+        <StackLayout x:Name="SafeEntryMenu">
+
+            <Label TextColor="{AppThemeBinding Light=Black, Dark=White }" HeightRequest="225" x:Name="area" Text="Scanned Data will Appear Here"  FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+            <Button Text="Scan" Pressed="Button_Pressed" Margin="10,0,10,0"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
