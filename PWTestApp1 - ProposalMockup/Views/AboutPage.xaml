@@ -54,14 +54,14 @@
 
         <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Fill" Margin="10, 5, 10, 5">
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3">
-                <Label x:Name="dateLabel" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" FontSize="21.5" TextColor="{AppThemeBinding Light=Black, Dark=White }" Grid.Column="2" Grid.Row="3" HorizontalOptions="Center" FontAttributes="Bold"/>
-                <Label x:Name="timeLabel" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" FontSize="21" TextColor="{AppThemeBinding Light=Black, Dark=White }" Grid.Column="2" Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Label x:Name="dateLabel" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" FontSize="Medium" TextColor="{AppThemeBinding Light=Black, Dark=White }" Grid.Column="2" Grid.Row="3" HorizontalOptions="Center" FontAttributes="Bold"/>
+                <Label x:Name="timeLabel" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" FontSize="Medium" TextColor="{AppThemeBinding Light=Black, Dark=White }" Grid.Column="2" Grid.Row="3" HorizontalOptions="Center" VerticalOptions="Center"/>
             </StackLayout>
         </Frame>
 
         <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalOptions="Fill" Margin="10, 5, 10, 5">
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3">
-                <Label Text="Upcoming Events" TextColor="Red" FontSize="19" FontAttributes="Bold"/>
+                <Label Text="Upcoming Events" TextColor="Red" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <ScrollView>
                     <StackLayout x:Name="upcomingEvents">
                         <Button Text="ABC" FontSize="15" CornerRadius="7" BackgroundColor="{AppThemeBinding Dark=DarkGray, Light=Gray}"/>

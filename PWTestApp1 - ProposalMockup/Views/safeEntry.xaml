@@ -4,9 +4,8 @@
              x:Class="PWTestApp1___ProposalMockup.Views.safeEntry">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Scan" Pressed="Button_Pressed"/>
+            <Label Text="Scanned Data Will Appear Here!" x:Name="QRData"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
