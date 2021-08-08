@@ -15,16 +15,20 @@ namespace PWTestApp1___ProposalMockup.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class SearchAnnouncements : ContentPage
     {
-        static readonly string[] Scopes = { SheetsService.Scope.Spreadsheets };
-        static readonly string ApplicationName = "Test";
-        static readonly string SpreadsheetId = "1w7bPa_hrH382oVPDwIW9EotY-rzHcj8VHBesYPHPNEg";
-        static readonly string studentInformationSheet = "Student Information";
-        static readonly string announcementLogSheet = "Announcement Log";
-        static SheetsService service;
+        public static List<string> announcementList = new List<string>();
+        public static List<string> announcementContent = new List<string>();
+        public static List<string> announcementSender = new List<string>();
 
         public SearchAnnouncements()
         {
             InitializeComponent();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await Task.Run(() => AddAnnouncements());
         }
 
         public class Announcement
@@ -33,48 +37,39 @@ namespace PWTestApp1___ProposalMockup.Views
             public string Content { get; set; }
         }
 
-        private async void GetAnnouncements()
+        private void AddAnnouncements()
         {
-            GoogleCredential credential;
+            announcementList.Clear();
+            announcementContent.Clear();
+            announcementSender.Clear();
 
-            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("clientSecrets.json"))
-                .CreateScoped(Scopes);
+            announcementList = AboutPage.saAnnouncementList;
+            announcementContent = AboutPage.saAnnouncementContent;
+            announcementSender = AboutPage.saAnnouncementSender;
 
-            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            int i = 0;
+            foreach(string ann in announcementList)
             {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
-
-            var range = $"{studentInformationSheet}!L2:N";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
-
-            var response = request.Execute();
-            var values = response.Values;
-
-            List<string> assignedAnnouncemetIds = new List<string>();
-
-            foreach(var row in values)
-            {
-                string ids = row[13].ToString();
-
-                ids = ids.Replace(',', ' ');
-                assignedAnnouncemetIds = ids.Split(' ').ToList();
+                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
+                i++;
             }
 
-            var range_ = $"{announcementLogSheet}!A2:K";
-            var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            ItemsInit();
+        }
 
-            var response_ = request.Execute();
-            var values_ = response.Values;
+        public static class AnnouncementsInit
+        {
+            public static IList<Announcement> Announcement { get; set; }
 
-            foreach(string id in assignedAnnouncemetIds)
+            static AnnouncementsInit()
             {
-                foreach(var row_ in values_)
-                {
-
-                }
+                Announcement = new ObservableCollection<Announcement>();
             }
+        }
+
+        private void ItemsInit()
+        {
+            Announcements.ItemsSource = AnnouncementsInit.Announcement;
         }
 
         private async void OnItemSelected(object sender, ItemTappedEventArgs e)

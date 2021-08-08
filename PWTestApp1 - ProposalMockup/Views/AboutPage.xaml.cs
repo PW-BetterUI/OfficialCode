@@ -28,6 +28,10 @@ namespace PWTestApp1___ProposalMockup.Views
         public static List<string> announcementSender = new List<string>();
         public static List<string> announcementTargetAudience = new List<string>();
 
+        public static List<string> saAnnouncementList = new List<string>();
+        public static List<string> saAnnouncementContent = new List<string>();
+        public static List<string> saAnnouncementSender = new List<string>();
+
         public static int idPosition;
 
         public AboutPage()
@@ -123,6 +127,23 @@ namespace PWTestApp1___ProposalMockup.Views
                                     //}
                                 }
                                 a++;
+                            }
+
+                            string assignedAnnouncementIds = row[2].ToString();
+                            string s = assignedAnnouncementIds.Replace(',', ' ');
+                            List<string> assignedAIds = s.Split(' ').ToList();
+
+                            saAnnouncementList.Clear();
+                            saAnnouncementContent.Clear();
+                            saAnnouncementSender.Clear();
+                            foreach(var row_ in values_)
+                            {
+                                if (assignedAIds.Contains(row_[10].ToString()))
+                                {
+                                    saAnnouncementList.Add(row_[0].ToString());
+                                    saAnnouncementContent.Add(row_[9].ToString());
+                                    saAnnouncementSender.Add(row_[1].ToString());
+                                }
                             }
                         }
                     }
