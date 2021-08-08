@@ -81,7 +81,6 @@ namespace PWTestApp1___ProposalMockup.Views
                         string ids = row[0].ToString();
                         if(ids == "0")
                         {
-
                             Console.WriteLine("yeah this works why isn't it working now");
                             break;
                         }
@@ -171,7 +170,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     string content = announcementSender[d] + "+ " + announcementContent[d];
                     string priority = "N/A";
                     string Audience = "N/A";
-                    button.Clicked += delegate { Navigation.PushAsync(new ItemDetailPage(title, content)); };
+                    button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage(title, content)); };
                 }
             }
 

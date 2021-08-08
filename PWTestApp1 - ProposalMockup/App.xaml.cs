@@ -23,7 +23,7 @@ namespace PWTestApp1___ProposalMockup
 
         protected override void OnStart()
         {
-            string AppPref = Preferences.Get("SystemThemePreference", "Dark");
+            string AppPref = Preferences.Get("SystemThemePreference", "Default");
             if(AppPref == "Dark")
             {
                 Application.Current.UserAppTheme = OSAppTheme.Dark;
@@ -31,6 +31,10 @@ namespace PWTestApp1___ProposalMockup
             else if(AppPref == "Light")
             {
                 Application.Current.UserAppTheme = OSAppTheme.Light;
+            }
+            else if(AppPref == "Default")
+            {
+                Application.Current.UserAppTheme = Application.Current.RequestedTheme; 
             }
         }
 

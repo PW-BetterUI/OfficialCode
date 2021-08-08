@@ -90,10 +90,15 @@ namespace PWTestApp1___ProposalMockup.Views
             Announcements.ItemsSource = AnnouncementsInit.Announcement;
         }
 
-        private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
+        private async void OnItemSelected(object sender, ItemTappedEventArgs e)
         {
             var details = e.Item as Announcement;
             await Navigation.PushAsync(new ItemDetailPage(details.AnnouncementTitle, details.Content));
+        }
+
+        private async void Search_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchAnnouncements());
         }
     }
 }

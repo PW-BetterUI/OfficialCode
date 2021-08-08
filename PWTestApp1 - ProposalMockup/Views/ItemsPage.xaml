@@ -7,6 +7,10 @@
              xmlns:model="clr-namespace:PWTestApp1___ProposalMockup.Models"  
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"
              x:Name="BrowseItemsPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem x:Name="Search" Text="Search" Clicked="Search_Clicked"/>
+    </ContentPage.ToolbarItems>
     
     <!--
       x:DataType enables compiled bindings for better performance and compile time validation of binding expressions.
