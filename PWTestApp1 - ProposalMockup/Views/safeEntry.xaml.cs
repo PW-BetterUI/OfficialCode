@@ -30,7 +30,7 @@ namespace PWTestApp1___ProposalMockup.Views
               {
                   Device.BeginInvokeOnMainThread(async () =>
                   {
-                      await Navigation.PopAsync();
+                      _ = await Navigation.PopAsync();
                       Result = Convert.ToInt32(result);
                   });
               };

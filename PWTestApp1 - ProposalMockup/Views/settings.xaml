@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.settings"
              xmlns:vm="clr-namespace:PWTestApp1___ProposalMockup.ViewModels"
+             Title="Settings"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.BindingContext>
         <vm:SettingsViewModel/>
@@ -12,9 +13,6 @@
         <TableView Intent="Settings">
             <TableRoot>
                 <TableSection>
-                    <ViewCell>
-                        <Label Text="Settings" TextColor="Red" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" FontSize="20"/>
-                    </ViewCell>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Dark Mode" TextColor="{AppThemeBinding Light=Gray, Dark=White}" VerticalOptions="Center" Padding="15, 0, 70, 0" x:Name="toggle"/>
