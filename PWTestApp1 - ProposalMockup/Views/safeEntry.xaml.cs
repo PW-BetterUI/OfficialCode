@@ -52,7 +52,7 @@ namespace PWTestApp1___ProposalMockup.Views
                           switch (int.Parse(result.Text))
                           {
                               case 1:
-                                  var range = $"SafeEntry Log!A2:D2";
+                                  var range = $"{safeEntryLog}!A2:D2";
                                   ValueRange valueRange = new ValueRange();
 
                                   var objectList = new List<object>() { userId, "Kong Chian Library", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("HH:mm") };
@@ -71,8 +71,6 @@ namespace PWTestApp1___ProposalMockup.Views
                       {
                           await DisplayAlert("Alert", "QR Code is not valid, please try again.", "OK");
                       }
-
-                      area.Text = result.Text;
                       Console.WriteLine("Working");
                   });
               };
@@ -95,17 +93,19 @@ namespace PWTestApp1___ProposalMockup.Views
         public void CheckIn(string location)
         {
             scan.IsVisible = false;
+
             DisplayAlert("SafeEntry", $"You have checked in to {location}", "OK");
+            area.Text = $"Currently checked in to {location}";
+
             checkOut.IsVisible = true;
         }
 
         private void CheckOut(object sender, EventArgs e)
         {
-
             checkOut.IsVisible = false;
-            DisplayAlert("SafeEntry", "You have checked out", "OK");
+            DisplayAlert("SafeEntry", "Successfully checked out", "OK");
             scan.IsVisible = true;
-            area.Text = "Scanned Data will Appear Here";
+            area.Text = "";
         }
     }
 }
