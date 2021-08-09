@@ -137,5 +137,10 @@ namespace PWTestApp1___ProposalMockup.Views
                 i++;
             }
         }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new SavedAnnouncements());
+        }
     }
 }
