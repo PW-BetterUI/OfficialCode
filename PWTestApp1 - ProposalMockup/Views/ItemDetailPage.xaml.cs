@@ -24,43 +24,41 @@ namespace PWTestApp1___ProposalMockup.Views
             AnnouncementContent.Text = Content;
         }
 
-        private void ToolbarItem_Clicked(object sender, System.EventArgs e)
+        private async void ToolbarItem_Clicked(object sender, System.EventArgs e)
         {
-            //string currentDir = Directory.GetCurrentDirectory();
+            string currentdir = Directory.GetCurrentDirectory();
+            string nameTitle = AnnouncementTitle.Text.Replace(" ", "");
+            string nameContent = AnnouncementTitle.Text.Replace(" ", "");
+            string titlefilepath = currentdir + @"\announcementtitle\" + nameTitle + ".json";
+            string contentfilepath = currentdir + @"\announcementcontent\" + nameContent + "c.json";
 
-            //string titleFilepath = currentDir + @"\AnnouncementTitle";
-            //string contentFilepath = currentDir + @"\AnnouncementContent";
+            Console.WriteLine(titlefilepath + "t/c " + contentfilepath);
+            JsonSerialize(AnnouncementTitle.Text, titlefilepath);
+            JsonSerialize(AnnouncementContent.Text, contentfilepath);
 
-            //Console.WriteLine(titleFilepath + "T/C " + contentFilepath);
-            //JsonSerialize(AnnouncementTitle.Text, titleFilepath);
-            //JsonSerialize(AnnouncementContent.Text, contentFilepath);
-            title = AnnouncementTitle.Text;
-            localPath = Path.Combine(FileSystem.AppDataDirectory , "AnnoucementTitle");
-            File.WriteAllText(localPath, AnnouncementTitle.Text);
-
-            //using (var stream = await FileSystem.OpenAppPackageFileAsync("AnnouncementTitle"))
-            //{
-            //    using (var reader = new StreamReader(stream))
-            //    {
-            //        AnnouncementTitle.Text = await reader.ReadToEndAsync();
-            //    }
-            //}
+            using (var stream = await FileSystem.OpenAppPackageFileAsync("announcementtitle"))
+            {
+                using (var reader = new StreamReader(stream))
+                {
+                    AnnouncementTitle.Text = await reader.ReadToEndAsync();
+                }
+            }
         }
 
-        //public void JsonSerialize(object data, string filepath)
-        //{
-        //    JsonSerializer jsonSerializer = new JsonSerializer();
-        //    if (File.Exists(filepath))
-        //    {
-        //        File.Delete(filepath);
-        //    }
-        //    StreamWriter sw = new StreamWriter(filepath);
-        //    JsonWriter jsonWriter = new JsonTextWriter(sw);
+        public void JsonSerialize(object data, string filepath)
+        {
+            JsonSerializer jsonSerializer = new JsonSerializer();
+            if (File.Exists(filepath))
+            {
+                File.Delete(filepath);
+            }
+            StreamWriter sw = new StreamWriter(filepath);
+            JsonWriter jsonWriter = new JsonTextWriter(sw);
 
-        //    jsonSerializer.Serialize(jsonWriter, data);
+            jsonSerializer.Serialize(jsonWriter, data);
 
-        //    jsonWriter.Close();
-        //    sw.Close();
-        //}
+            jsonWriter.Close();
+            sw.Close();
+        }
     }
 }
