@@ -14,5 +14,10 @@ namespace PWTestApp1___ProposalMockup.Views
             AnnouncementTitle.Text = Title;
             AnnouncementContent.Text = Content;
         }
+
+        private void ToolbarItem_Clicked(object sender, System.EventArgs e)
+        {
+
+        }
     }
 }
