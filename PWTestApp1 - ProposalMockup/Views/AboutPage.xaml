@@ -61,8 +61,7 @@
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3">
                 <Label Text="Upcoming Events" TextColor="Red" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <ScrollView>
-                    <StackLayout x:Name="upcomingEvents">
-                        <Button Text="ABC" FontSize="15" CornerRadius="7" BackgroundColor="{AppThemeBinding Dark=DarkGray, Light=Gray}"/>
+                    <StackLayout x:Name="UpcomingEvents">
                     </StackLayout>
                 </ScrollView>
             </StackLayout>
