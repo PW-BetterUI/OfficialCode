@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.safeEntry"
-             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"
+             Title="HCI SafeEntry">
     <ContentPage.Content>
-        <StackLayout x:Name="SafeEntryMenu">
-            <Label TextColor="{AppThemeBinding Light=Black, Dark=White }" HeightRequest="225" x:Name="area" Text="Scanned Data will Appear Here"  FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
-            <Button Text="Scan" Pressed="Scan" Margin="10,0,10,0" CornerRadius="7" x:Name="scan" IsVisible="true"/>
-            <Button Text="Check Out" Pressed="CheckOut" IsVisible="False" x:Name="checkOut" Margin="10,0,10,0" CornerRadius="7"/>
-        </StackLayout>
+        <Grid>
+            <StackLayout x:Name="SafeEntryMenu">
+                <Label x:Name="area" TextColor="{AppThemeBinding Light=Black, Dark=White }" HeightRequest="225" FontSize="Large" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                <Button Text="Scan" Pressed="Scan" Margin="10,0,10,0" CornerRadius="7" x:Name="scan" IsVisible="true"/>
+                <Button Text="Check Out" Pressed="CheckOut" IsVisible="False" x:Name="checkOut" Margin="10,0,10,0" CornerRadius="7"/>
+            </StackLayout>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
