@@ -25,15 +25,37 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             InitializeComponent();
             localPath = Path.Combine(FileSystem.AppDataDirectory, "AnnoucementTitle");
-            foreach (var i in localPath)
-            {
-                string a = File.ReadAllText(localPath);
-                title.Add(a);
-            }
+
+            int length1 = localPath.Count();
+            Console.WriteLine(length1);
+
+            string a = File.ReadAllText(localPath);
+
+            Console.WriteLine(a);
+
+            string b = a.Replace(System.Environment.NewLine, ",");
+            
+            Console.WriteLine(b);
+
+            title = a.Split(',').ToList();
             foreach (var i in title)
             {
                 Console.WriteLine(i);
             }
+            Console.WriteLine(title);
+            Console.WriteLine(title[0]);
+
+            var button = new Button();
+            int length = title.Count();
+
+            Console.WriteLine(length);
+            for (int i = 0; i < length; i++)
+            {
+                stackLayout.Children.Add(button);
+                button.Text = title[i];
+                button.Clicked += delegate { DisplayAlert("Alert", "It Works! :D", "Yay!"); };
+            }
+            
         }
     }
 }
