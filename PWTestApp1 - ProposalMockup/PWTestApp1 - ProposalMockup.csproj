@@ -52,5 +52,7 @@
 
   <ItemGroup>
     <Folder Include="Data\" />
+    <Folder Include="Views\AnnouncementTitle\" />
+    <Folder Include="Views\AnnouncementContent\" />
   </ItemGroup>
 </Project>
