@@ -5,8 +5,8 @@
              Title="Saved Announcements"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.Content>
-        <StackLayout>
-            <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True">
+        <StackLayout x:Name="stackLayout">
+            <!--<ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True">
                 <ListView.Header>
                     <ContentView Padding="0,5"  BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
                         <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
@@ -28,7 +28,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>
+            </ListView>-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
