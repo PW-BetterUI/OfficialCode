@@ -10,6 +10,7 @@ using Xamarin.Forms.Xaml;
 using Xamarin.Essentials;
 using Google.Apis.Sheets.v4;
 using Google.Apis.Sheets.v4.Data;
+using Google.Apis.Auth.OAuth2;
 
 namespace PWTestApp1___ProposalMockup.Views
 {
@@ -21,6 +22,8 @@ namespace PWTestApp1___ProposalMockup.Views
         static readonly string SpreadsheetId = "1w7bPa_hrH382oVPDwIW9EotY-rzHcj8VHBesYPHPNEg";
         static readonly string safeEntryLog = "SafeEntry Log";
         static SheetsService service;
+
+        public static string userId = LoginPage.userId;
 
         public safeEntry()
         {
@@ -44,13 +47,15 @@ namespace PWTestApp1___ProposalMockup.Views
 
                       if (isNumeric)
                       {
+                          HttpRequestInit();
+
                           switch (int.Parse(result.Text))
                           {
                               case 1:
                                   var range = $"SafeEntry Log!A2:D2";
-                                  var valueRange = new ValueRange();
+                                  ValueRange valueRange = new ValueRange();
 
-                                  var objectList = new List<object>() { "211530w", "Sun Zizhuo", "1O3", "123456789" };
+                                  var objectList = new List<object>() { userId, "Kong Chian Library", DateTime.Now.ToString("dd/MM/yyyy"), DateTime.Now.ToString("HH:mm") };
                                   valueRange.Values = new List<IList<object>> { objectList };
 
                                   var appendRequest = service.Spreadsheets.Values.Append(valueRange, SpreadsheetId, range);
@@ -73,10 +78,24 @@ namespace PWTestApp1___ProposalMockup.Views
               };
         }
 
+        private async void HttpRequestInit()
+        {
+            GoogleCredential credential;
+
+            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("clientSecrets.json"))
+                .CreateScoped(Scopes);
+
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
+        }
+
         public void CheckIn(string location)
         {
             scan.IsVisible = false;
-            DisplayAlert("SafeEntry", "You have checked in to {0}", location, "OK");
+            DisplayAlert("SafeEntry", $"You have checked in to {location}", "OK");
             checkOut.IsVisible = true;
         }
 

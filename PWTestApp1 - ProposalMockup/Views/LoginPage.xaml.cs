@@ -23,6 +23,7 @@ namespace PWTestApp1___ProposalMockup.Views
         private static bool passwordFailed = true;
 
         private static int idPos = 0;
+        public static string userId;
 
         public LoginPage()
         {
@@ -97,6 +98,8 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
                         Console.WriteLine("yes");
                         idFailed = false;
+                        userId = row[0].ToString();
+                        safeEntry.userId = row[0].ToString();
                         return;
                     }
                     else
