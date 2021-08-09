@@ -99,7 +99,9 @@ namespace PWTestApp1___ProposalMockup.Views
                         Console.WriteLine("yes");
                         idFailed = false;
                         userId = row[0].ToString();
+
                         safeEntry.userId = row[0].ToString();
+                        Results.userId = row[0].ToString();
                         return;
                     }
                     else
