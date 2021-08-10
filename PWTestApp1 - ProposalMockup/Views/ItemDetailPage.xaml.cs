@@ -18,8 +18,8 @@ namespace PWTestApp1___ProposalMockup.Views
         string localPath;
         public static string title;
 
-        public string nameTitle = "announcementT.txt";
-        public string nameContent = "announcementC.txt";
+        public string nameTitle = "announcementT";
+        public string nameContent = "announcementC";
         public ItemDetailPage(string Title, string Content)
         {
             InitializeComponent();
@@ -32,64 +32,59 @@ namespace PWTestApp1___ProposalMockup.Views
         public async void ToolbarItem_Clicked(object sender, System.EventArgs e)
         {
             //string currentdir = Directory.GetCurrentDirectory();
-            //string nameTitle = AnnouncementTitle.Text.Replace(" ", "");
-            //string nameContent = AnnouncementTitle.Text.Replace(" ", "");
-            //string titlefilepath = currentdir + @"\announcementtitle\" + nameTitle + ".json";
-            //string contentfilepath = currentdir + @"\announcementcontent\" + nameContent + "c.json";
-
-            //Console.WriteLine(titlefilepath + "t/c " + contentfilepath);
-            //JsonSerialize(AnnouncementTitle.Text, titlefilepath);
-            //JsonSerialize(AnnouncementContent.Text, contentfilepath);
+            //string nametitle = AnnouncementTitle.Text.Replace(" ", "");
+            //string namecontent = AnnouncementTitle.Text.Replace(" ", "");
+            //string titlefilepath = currentdir + @"\announcementtitle\" + nametitle + ".txt";
+            //string contentfilepath = currentdir + @"\announcementcontent\" + namecontent + "c.txr";
 
             //using (var stream = await FileSystem.OpenAppPackageFileAsync("announcementtitle"))
             //{
             //    using (var reader = new StreamReader(stream))
             //    {
-            //        AnnouncementTitle.Text = await reader.ReadToEndAsync();
+            //        AnnouncementTitle.Text = await reader.readtoendasync();
             //    }
             //}
 
-            
-
-            var location = Convert.ToString(FileSystem.OpenAppPackageFileAsync(nameTitle));
-            Console.WriteLine(location);
-
-            List<string> oldData = new List<string>();
-            List<string> newData = new List<string>();
 
 
+            //var location = @"C:\Users\OSdoge\source\repos\BetterUI\PWTestApp1 - ProposalMockup\Views\AnnouncementTitle\AnnouncementsTitle.json";
+            //Console.WriteLine(location);
 
-            var oldJson = File.ReadAllLines(location);
-            oldData = new List<string>(oldJson);
+            //List<string> oldData = new List<string>();
+            //List<string> newData = new List<string>();
 
-            string x = AnnouncementTitle.Text;
 
-            oldData.Add(x);
-            newData = oldData;
+            //string x = AnnouncementTitle.Text;
 
-            File.Delete(location);
+            //var oldJson = File.ReadAllLines(location);
+            //oldData = new List<string>(oldJson);
+            //oldData.Add(x);
+            //newData = oldData;
+            //File.Delete(location);
+            //JsonSerializer serializer = new JsonSerializer();
 
-            JsonSerializer serializer = new JsonSerializer();
+            //using (StreamWriter sw = new StreamWriter(location))
+            //{
+            //    using (JsonWriter writer = new JsonTextWriter(sw))
+            //    {
+            //        serializer.Serialize(writer, newData);
+            //    }
+            //}
 
-            using (StreamWriter sw = new StreamWriter(location))
-            {
-                using (JsonWriter writer = new JsonTextWriter(sw))
-                {
-                    serializer.Serialize(writer, newData);
-                }
-            }
+            //await DisplayAlert("Alert", "It works?", "Maybe");
 
 
 
-            
-            
-            using (var stream = await FileSystem.OpenAppPackageFileAsync(nameTitle))
-            {
-                using (var reader = new StreamReader(stream))
-                {
-                    await DisplayAlert("Notice", reader.ReadToEndAsync() + " has been saved", "OK");
-                }
-            }
+
+
+
+            //using (var stream = await FileSystem.OpenAppPackageFileAsync(nameTitle))
+            //{
+            //    using (var reader = new StreamReader(stream))
+            //    {
+            //        await DisplayAlert("Notice", reader.ReadToEndAsync() + " has been saved", "OK");
+            //    }
+            //}
 
 
         }
