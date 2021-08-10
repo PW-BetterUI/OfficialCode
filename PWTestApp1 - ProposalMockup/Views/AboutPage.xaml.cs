@@ -337,5 +337,10 @@ namespace PWTestApp1___ProposalMockup.Views
                 }
             }
         }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
+        }
     }
 }
