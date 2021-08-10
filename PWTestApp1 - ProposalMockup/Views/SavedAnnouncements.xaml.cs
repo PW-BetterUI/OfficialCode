@@ -24,6 +24,7 @@ namespace PWTestApp1___ProposalMockup.Views
         public SavedAnnouncements()
         {
             InitializeComponent();
+            ItemDetailPage.
         }
     }
 }
