@@ -37,6 +37,13 @@ namespace PWTestApp1___ProposalMockup.Views
 		{
 			InitializeComponent ();
 
+			ResetPicker();
+		}
+
+		private void ResetPicker()
+        {
+			ResultsPicker.Items.Clear();
+
 			ResultsPicker.Items.Add("Term 1: Oral Presentation");
 			ResultsPicker.Items.Add("Term 2: Oral Presentation");
 			ResultsPicker.Items.Add("Term 1: Test");
@@ -61,13 +68,13 @@ namespace PWTestApp1___ProposalMockup.Views
         {
 			CredentialsInit();
 
-			var range = $"{examResultsOPSheet}!A2:I";
+			var range = $"{examResultsOPSheet}!A1:I";
 			var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
 			var response = request.Execute();
 			var values = response.Values;
 
-			var range_ = $"{examResultsTestSheet}!A2:J";
+			var range_ = $"{examResultsTestSheet}!A:J";
 			var request_ = service.Spreadsheets.Values.Get(SpreadsheetId, range_);
 
 			var response_ = request_.Execute();
@@ -82,45 +89,45 @@ namespace PWTestApp1___ProposalMockup.Views
 			testResultsHeaders.Clear();
 
 			int x = 0;
-			foreach(var row in values)
-            {
+			foreach (var r in values[0])
+			{
 				if(x > 1)
                 {
-					opResultsHeaders.Add(row[x].ToString());
-				}
+					opResultsHeaders.Add(r.ToString());
+                }
 
 				x++;
-            }
+			}
 
 			int y = 0;
-			foreach(var row in values_)
+			foreach(var r in values_[0])
             {
 				if(y > 1)
                 {
-					testResultsHeaders.Add(row[y].ToString());
+					testResultsHeaders.Add(r.ToString());
                 }
+
+				y++;
             }
 
 
 			if (scope == "Term 1: Oral Presentation")
             {
-				Console.WriteLine("Ayy this works");
-
 				foreach(var row in values)
                 {
-					if(row[0].ToString() == userId)
+                    if (row[0].ToString() == userId)
                     {
-						if(int.Parse(row[1].ToString()) == 1)
-                        {
-							for(int i = 2; i <= row.Count(); i++)
-                            {
+						if (int.Parse(row[1].ToString()) == 1)
+						{
+							for (int i = 2; i < row.Count(); i++)
+							{
 								term1OPResults.Add(row[i].ToString());
-                            }
-                        }
+							}
+						}
                     }
-                }
+				}
 
-				Console.WriteLine("term 1 op yes");
+				Console.WriteLine("term 1 op result yes");
             }
 			else if(scope == "Term 2: Oral Presentation")
             {
@@ -130,7 +137,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
 						if(int.Parse(row[1].ToString()) == 2)
                         {
-							for(int i = 2; i <= row.Count(); i++)
+							for(int i = 2; i < row.Count(); i++)
                             {
 								term2OPResults.Add(row[i].ToString());
                             }
@@ -148,7 +155,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
 						if(int.Parse(row[1].ToString()) == 1)
                         {
-							for(int i = 2; i <= row.Count(); i++)
+							for(int i = 2; i < row.Count(); i++)
                             {
 								term1TestResults.Add(row[i].ToString());
                             }
@@ -166,7 +173,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
                         if (int.Parse(row[1].ToString()) == 2)
                         {
-							for(int i = 2; i <= row.Count(); i++)
+							for(int i = 2; i < row.Count(); i++)
                             {
 								term2TestResults.Add(row[i].ToString());
                             }
@@ -185,35 +192,83 @@ namespace PWTestApp1___ProposalMockup.Views
 
 			if(selectedIndex != -1)
             {
-				await Task.Run(() => CheckResult(picker.Items[selectedIndex]));
+				ResultsStackLayout.Children.Clear();
+
+                LoadingResultsActivityIndicator.IsRunning = true;
+
+                await Task.Run(() => CheckResult(picker.Items[selectedIndex]));
 
 				string scope = picker.Items[selectedIndex];
 
-				ResultsStackLayout.Children.Clear();
+				Console.WriteLine(term1OPResults.Count());
 
+				if (scope == "Term 1: Oral Presentation")
+				{
+					int i = 0;
+					foreach(string result in term1OPResults)
+					{
+						if (result != "-")
+						{
+							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
+							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
-                if (scope == "Term 1: Oral Presentation")
+							ResultsStackLayout.Children.Add(resultLabel);
+						}
+
+						i++;
+					}
+				}
+				else if (scope == "Term 2: Oral Presentation")
+				{
+					int i = 0;
+					foreach(string result in term2OPResults)
+					{
+						if (result != "-")
+						{
+							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
+							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
+
+							ResultsStackLayout.Children.Add(resultLabel);
+						}
+
+						i++;
+					}
+				}
+				else if (scope == "Term 1: Test")
                 {
-                    int i = 0;
-                    foreach (string result in term1OPResults)
+					int i = 0;
+					foreach(string result in term1TestResults)
                     {
-                        if (result != "-")
+						if (result != "-")
                         {
-							//var resultLabel = new Label { Text = $"{opResultsHeaders}: {result}", TextColor = Color.White};
+							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
+							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
-							var resultLabel = new Label { Text = "gamer" };
+							ResultsStackLayout.Children.Add(resultLabel);
+						}
 
-                            ResultsStackLayout.Children.Add(resultLabel);
-                        }
-
-                        i++;
+						i++;
                     }
                 }
+				else if (scope == "Term 2: Test")
+                {
+					int i = 0;
+					foreach(string result in term2TestResults)
+                    {
+						if (result != "-")
+                        {
+							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
+							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
+							ResultsStackLayout.Children.Add(resultLabel);
+						}
 
-                //var gamer = new Label { Text = "Gamer" };
-                //ResultsStackLayout.Children.Add(gamer);
+						i++;
+                    }
+                }
             }
+
+            LoadingResultsActivityIndicator.IsRunning = false;
         }
 
         private void Button_Clicked(object sender, EventArgs e)

@@ -6,9 +6,10 @@
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout x:Name="stackLayout" Spacing="0" Padding="10,0,10,0">
+            <StackLayout x:Name="ResultsPickerStackLayout" Spacing="0" Padding="10,0,10,0">
                 <Picker x:Name="ResultsPicker" Margin="5, 10, 0, 0" Title="Pick a Result..." TitleColor="Gray" TextColor="{AppThemeBinding Light=Black, Dark=White}" SelectedIndexChanged="OnPickerSelectedIndexChanged" />
             </StackLayout>
+            <ActivityIndicator x:Name="LoadingResultsActivityIndicator" Color="{AppThemeBinding Light=LightGray,Dark=White}"/>
             <StackLayout x:Name="ResultsStackLayout" />
         </StackLayout>
     </ContentPage.Content>

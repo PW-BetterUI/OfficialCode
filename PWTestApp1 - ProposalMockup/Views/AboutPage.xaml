@@ -57,7 +57,7 @@
             </StackLayout>
         </Frame>
 
-        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" HorizontalOptions="Fill" Margin="10, 0, 10, 5">
+        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="6" HorizontalOptions="Fill" Margin="10, 0, 10, 5">
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3">
                 <Label Text="Upcoming Events" TextColor="Red" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <ScrollView>
