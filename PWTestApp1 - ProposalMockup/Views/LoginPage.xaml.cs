@@ -121,7 +121,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
             int i = 0;
 
-            var range = $"{sheet}!A2:D5";
+            var range = $"{sheet}!A2:D";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
             var response = request.Execute();
