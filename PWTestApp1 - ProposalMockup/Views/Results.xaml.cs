@@ -192,11 +192,13 @@ namespace PWTestApp1___ProposalMockup.Views
 
 			if(selectedIndex != -1)
             {
-				await Task.Run(() => CheckResult(picker.Items[selectedIndex]));
+				ResultsStackLayout.Children.Clear();
+
+                LoadingResultsActivityIndicator.IsRunning = true;
+
+                await Task.Run(() => CheckResult(picker.Items[selectedIndex]));
 
 				string scope = picker.Items[selectedIndex];
-
-				ResultsStackLayout.Children.Clear();
 
 				Console.WriteLine(term1OPResults.Count());
 
@@ -207,7 +209,7 @@ namespace PWTestApp1___ProposalMockup.Views
 					{
 						if (result != "-")
 						{
-							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(5, 0, 0, 0) };
+							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
 							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
 							ResultsStackLayout.Children.Add(resultLabel);
@@ -223,7 +225,7 @@ namespace PWTestApp1___ProposalMockup.Views
 					{
 						if (result != "-")
 						{
-							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(5, 0, 0, 0) };
+							var resultLabel = new Label { Text = $"{opResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
 							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
 							ResultsStackLayout.Children.Add(resultLabel);
@@ -239,7 +241,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
 						if (result != "-")
                         {
-							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(5, 0, 0, 0) };
+							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
 							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
 							ResultsStackLayout.Children.Add(resultLabel);
@@ -255,7 +257,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     {
 						if (result != "-")
                         {
-							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(5, 0, 0, 0) };
+							var resultLabel = new Label { Text = $"{testResultsHeaders[i]}: {result}", Margin = new Thickness(20, 0, 0, 0) };
 							resultLabel.SetAppThemeColor(Label.TextColorProperty, Color.Black, Color.White);
 
 							ResultsStackLayout.Children.Add(resultLabel);
@@ -265,6 +267,8 @@ namespace PWTestApp1___ProposalMockup.Views
                     }
                 }
             }
+
+            LoadingResultsActivityIndicator.IsRunning = false;
         }
 
         private void Button_Clicked(object sender, EventArgs e)
