@@ -43,6 +43,7 @@ namespace PWTestApp1___ProposalMockup.Views
         public static string position;
 
         public static int idPosition;
+        public static string userId = LoginPage.userId;
 
         public AboutPage()
         {
@@ -306,35 +307,30 @@ namespace PWTestApp1___ProposalMockup.Views
             await DisplayAlert("Notice", "Student Handbook download will be added at a later date. \nWe apologise for the inconvenience caused.", "OK");
         }
 
-        public void WelcomeUser()
+        public async void WelcomeUser()
         {
             CredentialsInit();
 
-            Console.WriteLine("yesx1");
-            var range = $"{studentInformationSheet}!B:B";
+            var range = $"{studentInformationSheet}!A2:B";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
             var response = request.Execute();
-            var value = response.Values;
+            var values = response.Values;
 
-            foreach (var row in value)
+            int i = 0;
+            foreach (var row in values)
             {
-                if (value != null)
+                if(i == idPosition)
                 {
-                    if (position.ToLower() == row[0].ToString())
-                    {
-                        Console.WriteLine("yesx2");
-                        userNamePageDisplay.Text = row[1].ToString();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Yesx-1");
-                    }
+                    userNamePageDisplay.Text = row[1].ToString();
+                    Console.WriteLine(row[1]);
+
+                    //await DisplayAlert("yes", row[1].ToString(), "ok");
+
+                    break;
                 }
-                else
-                {
-                    Console.WriteLine("Yesx-100");
-                }
+
+                i++;
             }
         }
     }

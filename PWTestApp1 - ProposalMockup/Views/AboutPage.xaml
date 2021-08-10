@@ -70,8 +70,8 @@
 
         <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="Fill" Margin="5, 5, 10, 0">
             <StackLayout>
-                <Label Text="Welcome To IESP"  TextColor="Red" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"/>
-                <Label x:Name="userNamePageDisplay" Text="Test" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                <Label Text="Welcome To IESP" TextColor="Red" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
+                <Label x:Name="userNamePageDisplay" Text="Test" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
             </StackLayout>
         </Frame>
 
