@@ -18,8 +18,11 @@ namespace PWTestApp1___ProposalMockup.Views
         string localPath;
         public static string title;
 
-        public string nameTitle = "announcementT";
-        public string nameContent = "announcementC";
+        private string announcementTitle;
+        private string announcementContent;
+
+        public const string savedAnnouncementFileName = "SavedAnnouncementLog.txt";
+
         public ItemDetailPage(string Title, string Content)
         {
             InitializeComponent();
@@ -27,10 +30,29 @@ namespace PWTestApp1___ProposalMockup.Views
 
             AnnouncementTitle.Text = Title;
             AnnouncementContent.Text = Content;
+
+            announcementTitle = Title;
+            announcementContent = Content;
         }
 
         public async void ToolbarItem_Clicked(object sender, System.EventArgs e)
         {
+            await DisplayAlert("WARNING", "This function is still a Beta Function, meaning that it may not work as intended.", "I understand and wish to proceed");
+
+            localPath = Path.Combine(FileSystem.AppDataDirectory, savedAnnouncementFileName);
+
+            string currentFileInformation = File.ReadAllText(localPath);
+            Console.WriteLine(currentFileInformation);
+            File.WriteAllText(localPath, $"#{announcementTitle},{announcementContent}{currentFileInformation}");
+            Console.WriteLine(File.ReadAllText(localPath));
+
+            //using (var stream = await FileSystem.OpenAppPackageFileAsync("TheFile.txt"))
+            //{
+            //    using (var reader = new StreamReader(stream))
+            //    {
+            //        Console.WriteLine(await reader.ReadToEndAsync());
+            //    }
+            //}
             //string currentdir = Directory.GetCurrentDirectory();
             //string nametitle = AnnouncementTitle.Text.Replace(" ", "");
             //string namecontent = AnnouncementTitle.Text.Replace(" ", "");
