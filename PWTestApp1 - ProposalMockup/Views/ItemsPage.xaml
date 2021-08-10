@@ -43,7 +43,7 @@
             </CollectionView.ItemTemplate>0 ur mom
         </CollectionView>
     </RefreshView>-->
-    <Grid>
+    <Grid Margin="5, 0, 0, 0">
         <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected"  >
             <ListView.Header>
                 <ContentView Padding="0,5"  BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">

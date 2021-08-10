@@ -150,10 +150,13 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\hci_transparent_logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\SavedAnnouncementLog.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

@@ -4,13 +4,21 @@
              x:Class="PWTestApp1___ProposalMockup.Views.SavedAnnouncements"
              Title="Saved Announcements"
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Clear All" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>
+    
     <ContentPage.Content>
-        <StackLayout x:Name="stackLayout">
-            <!--<ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True">
+        <!--<StackLayout x:Name="stackLayout">
+            <Button Text="Clear All Saved Announcements" Clicked="Button_Clicked"/>
+        </StackLayout>-->
+        <Grid Margin="5, 0, 0, 0">
+            <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True" ItemTapped="OnItemSelected"  >
                 <ListView.Header>
                     <ContentView Padding="0,5"  BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
                         <Label FontSize="Large" TextColor="Red" FontAttributes="Bold"
-                   Text="Saved Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+                   Text="Unread Announcements" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
                     </ContentView>
                 </ListView.Header>
                 <ListView.ItemTemplate>
@@ -28,7 +36,7 @@
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
-            </ListView>-->
-        </StackLayout>
+            </ListView>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>

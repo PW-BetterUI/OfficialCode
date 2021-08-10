@@ -158,4 +158,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\test.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\SavedAnnouncementLog.txt" />
+  </ItemGroup>
 </Project>

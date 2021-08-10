@@ -19,7 +19,7 @@ namespace PWTestApp1___ProposalMockup
             MainPage = new AppShell();
 
             Device.SetFlags(new string[] { "AppTheme_Experimental" });
-    }
+        }
 
         protected override void OnStart()
         {
