@@ -33,6 +33,11 @@ namespace PWTestApp1___ProposalMockup.Views
             {
                 PreferenceSwitch.IsToggled = false;
             }
+
+            if(Application.Current.UserAppTheme == OSAppTheme.Dark && AppPref != "Light")
+            {
+                PreferenceSwitch.IsToggled = true;
+            }
         }
 
         void DarkModeToggled(object sender, ToggledEventArgs e)

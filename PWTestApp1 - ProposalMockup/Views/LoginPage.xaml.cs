@@ -102,6 +102,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
                         safeEntry.userId = row[0].ToString();
                         Results.userId = row[0].ToString();
+                        AboutPage.userId = row[0].ToString();
                         AboutPage.position = row[0].ToString();
                         return;
                     }
