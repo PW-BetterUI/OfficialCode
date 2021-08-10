@@ -8,6 +8,7 @@ using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Sheets.v4;
+using System.Net;
 
 namespace PWTestApp1___ProposalMockup.Views
 {
@@ -38,6 +39,9 @@ namespace PWTestApp1___ProposalMockup.Views
         private static List<string> eventStartDate_ = new List<string>();
         private static List<string> eventEndDate_ = new List<string>();
 
+        private static List<string> userName = new List<string>();
+        public static string position;
+
         public static int idPosition;
 
         public AboutPage()
@@ -53,6 +57,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
             MainTask();
             UpcomingEventsMainTask();
+            WelcomeUser();
         }
 
         public void countButton(System.Object sender, System.EventArgs e)
@@ -291,6 +296,46 @@ namespace PWTestApp1___ProposalMockup.Views
 
                 return true;
             });
+        }
+
+        private async void Button_Pressed(object sender, EventArgs e)
+        {
+            //WebClient wc = new WebClient();
+            //wc.DownloadFile("https://isphs.hci.edu.sg/download.asp?f=HSStudentHandbook", @"/download/handbook.pdf");
+            //await DisplayAlert("Download", "Downloading File", "OK");
+            await DisplayAlert("Notice", "Student Handbook download will be added at a later date. \nWe apologise for the inconvenience caused.", "OK");
+        }
+
+        public void WelcomeUser()
+        {
+            CredentialsInit();
+
+            Console.WriteLine("yesx1");
+            var range = $"{studentInformationSheet}!B:B";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var value = response.Values;
+
+            foreach (var row in value)
+            {
+                if (value != null)
+                {
+                    if (position.ToLower() == row[0].ToString())
+                    {
+                        Console.WriteLine("yesx2");
+                        userNamePageDisplay.Text = row[1].ToString();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Yesx-1");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Yesx-100");
+                }
+            }
         }
     }
 }
