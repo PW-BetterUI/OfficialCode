@@ -4,8 +4,8 @@
              xmlns:xns="http://xamarin.com/schemas/2020/toolkit"
              x:Class="PWTestApp1___ProposalMockup.Views.View1">
   <ContentView.Content>
-      <StackLayout>
+      <!--<StackLayout>
             <xns:MediaElement AutoPlay="True" x:Name="mediaSource"/>
-        </StackLayout>
+        </StackLayout>-->
   </ContentView.Content>
 </ContentView>

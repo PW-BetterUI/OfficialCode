@@ -39,11 +39,11 @@
     <BundleAssemblies>false</BundleAssemblies>
     <MandroidI18n />
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
-    <AndroidKeyStore>false</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
-    <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>nepunepnep123</AndroidSigningKeyPass>
+    <AndroidKeyStore>true</AndroidKeyStore>
+    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>gamer123</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>gamer123</AndroidSigningKeyPass>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -59,10 +59,10 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>nepunepnep123</AndroidSigningKeyPass>
-    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>gamer123</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>gamer123</AndroidSigningStorePass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />

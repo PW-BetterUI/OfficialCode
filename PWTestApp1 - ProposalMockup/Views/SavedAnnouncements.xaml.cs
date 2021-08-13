@@ -49,19 +49,19 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             AnnouncementsInit.Announcement.Clear();
 
-            List<string> announcementList = File.ReadAllText(localPath).Split('#').ToList();
+            //List<string> announcementList = File.ReadAllText(localPath).Split('#').ToList();
 
-            foreach (string ann in announcementList)
-            {
-                if (ann != null || ann != "")
-                {
-                    announcementTitleContentList = ann.Split(',').ToList();
-                    //Console.WriteLine(announcementTitleContentList[1]);
+            //foreach (string ann in announcementList)
+            //{
+            //    if (ann != null || ann != "")
+            //    {
+            //        announcementTitleContentList = ann.Split(',').ToList();
+            //        //Console.WriteLine(announcementTitleContentList[1]);
 
 
-                    AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = announcementTitleContentList[0], Content = announcementTitleContentList[0] });
-                }
-            }
+            //        AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = announcementTitleContentList[0], Content = announcementTitleContentList[0] });
+            //    }
+            //}
 
             //int i = 0;
             //foreach (string ann in announcementList)
@@ -89,13 +89,13 @@ namespace PWTestApp1___ProposalMockup.Views
             await Navigation.PushAsync(new ItemDetailPage(details.AnnouncementTitle, details.Content));
         }
 
-        private async void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-            localPath = Path.Combine(FileSystem.AppDataDirectory, ItemDetailPage.savedAnnouncementFileName);
-            File.WriteAllText(localPath, null);
-            Console.WriteLine("All saved announcements cleared!");
-            AddSavedAnnouncements();
-            await DisplayAlert("Alert", "Cleared all announcements!", "OK");
-        }
+        //private async void ToolbarItem_Clicked(object sender, EventArgs e)
+        //{
+        //    localPath = Path.Combine(FileSystem.AppDataDirectory, ItemDetailPage.savedAnnouncementFileName);
+        //    File.WriteAllText(localPath, null);
+        //    Console.WriteLine("All saved announcements cleared!");
+        //    AddSavedAnnouncements();
+        //    await DisplayAlert("Alert", "Cleared all announcements!", "OK");
+        //}
     }
 }

@@ -19,7 +19,7 @@ namespace PWTestApp1___ProposalMockup.Views
         public View1()
         {
             InitializeComponent();
-            mediaSource.Source = GetYouTubeUrl("eLLfOVkp6so");
+            //mediaSource.Source = GetYouTubeUrl("eLLfOVkp6so");
         }
         public string GetYouTubeUrl(string videoId)
         {
