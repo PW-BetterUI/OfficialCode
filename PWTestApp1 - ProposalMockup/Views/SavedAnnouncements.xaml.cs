@@ -14,20 +14,8 @@ using System.Collections.ObjectModel;
 namespace PWTestApp1___ProposalMockup.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-
-
     public partial class SavedAnnouncements : ContentPage
     {
-        public string AnnouncementTitle;
-        public string Content;
-        public string localPath = Path.Combine(FileSystem.AppDataDirectory, ItemDetailPage.savedAnnouncementFileName);
-        public List<string> title = new List<string>();
-
-        private static List<string> announcementTitleList = new List<string>();
-        private static List<string> announcementContent = new List<string>();
-
-        private static List<string> announcementTitleContentList = new List<string>();
-
         public SavedAnnouncements()
         {
             InitializeComponent();
