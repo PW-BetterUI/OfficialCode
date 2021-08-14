@@ -59,10 +59,10 @@
     <AndroidEnableProfiledAot>false</AndroidEnableProfiledAot>
     <BundleAssemblies>false</BundleAssemblies>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyAlias>keystore</AndroidSigningKeyAlias>
-    <AndroidSigningKeyPass>nepunepnep123</AndroidSigningKeyPass>
-    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore.keystore</AndroidSigningKeyStore>
-    <AndroidSigningStorePass>nepunepnep123</AndroidSigningStorePass>
+    <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
+    <AndroidSigningKeyPass>gamer123</AndroidSigningKeyPass>
+    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningStorePass>gamer123</AndroidSigningStorePass>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Mono.Android" />
@@ -153,7 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

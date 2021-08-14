@@ -39,6 +39,8 @@ namespace PWTestApp1___ProposalMockup.Views
         private static List<string> eventStartDate_ = new List<string>();
         private static List<string> eventEndDate_ = new List<string>();
 
+        public static List<string> assignedAIds = new List<string>();
+
         public static int idPosition;
 
         public AboutPage()
@@ -143,9 +145,11 @@ namespace PWTestApp1___ProposalMockup.Views
                                 a++;
                             }
 
+                            assignedAIds.Clear();
+
                             string assignedAnnouncementIds = row[2].ToString();
                             string s = assignedAnnouncementIds.Replace(',', ' ');
-                            List<string> assignedAIds = s.Split(' ').ToList();
+                            assignedAIds = s.Split(' ').ToList();
 
                             saAnnouncementList.Clear();
                             saAnnouncementContent.Clear();
@@ -202,7 +206,7 @@ namespace PWTestApp1___ProposalMockup.Views
                     button.Text = announcementList[d];
                     Announcements.Children.Add(button);
                     string title = button.Text;
-                    string content = announcementSender[d] + "+ " + announcementContent[d];
+                    string content = announcementSender[d] + ": " + announcementContent[d];
                     string priority = "N/A";
                     string Audience = "N/A";
                     button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage(title, content)); };

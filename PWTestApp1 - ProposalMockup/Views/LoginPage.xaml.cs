@@ -56,6 +56,8 @@ namespace PWTestApp1___ProposalMockup.Views
 
                 errorMsg.IsVisible = false;
                 AboutPage.idPosition = idPos;
+                ItemDetailPage.idPos = idPos;
+                ItemsPage.idPos = idPos;
             }
 
             //idFailed = true;

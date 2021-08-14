@@ -18,6 +18,7 @@ namespace PWTestApp1___ProposalMockup.Views
         public static List<string> announcementList = new List<string>();
         public static List<string> announcementContent = new List<string>();
         public static List<string> announcementSender = new List<string>();
+        public static List<int> announcementId = new List<int>();
 
         public SearchAnnouncements()
         {
@@ -34,26 +35,29 @@ namespace PWTestApp1___ProposalMockup.Views
         public class Announcement
         {
             public string AnnouncementTitle { get; set; }
+            public int AnnouncementId { get; set; }
             public string Content { get; set; }
             public string Tags { get; set; }
         }
 
         private void AddAnnouncements()
         {
-            announcementList.Clear();
-            announcementContent.Clear();
-            announcementSender.Clear();
-
-            announcementList = AboutPage.saAnnouncementList;
-            announcementContent = AboutPage.saAnnouncementContent;
-            announcementSender = AboutPage.saAnnouncementSender;
+            announcementList = AboutPage.announcementList;
+            announcementSender = AboutPage.announcementSender;
+            announcementContent = AboutPage.announcementContent;
+            AnnouncementsInit.Announcement.Clear();
 
             int i = 0;
-            foreach(string ann in announcementList)
+            foreach (string ann in announcementList)
             {
-                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i], Tags = ann + ' ' + announcementSender[i] + ' ' + announcementContent[i] });
+                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i], AnnouncementId = int.Parse(AboutPage.assignedAIds[i]) });
                 i++;
             }
+
+            //for(int x = 0; x <= announcementList.Count(); x++)
+            //{
+            //    AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = announcementList[x], Content = announcementSender[x] + ": " + announcementContent[x] });
+            //}
 
             ItemsInit();
         }

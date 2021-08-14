@@ -24,7 +24,9 @@ namespace PWTestApp1___ProposalMockup.Views
         public static List<string> announcementSender = new List<string>();
         public static List<string> announcementContent = new List<string>();
         public static List<string> announcementTargetAudience = new List<string>();
+        public static List<int> announcementId = new List<int>();
 
+        public static int idPos = new int();
         public ItemsPage()
         {
             InitializeComponent();
@@ -44,6 +46,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             public string AnnouncementTitle { get; set; }
             public string Content { get; set; }
+            public int AnnouncementId { get; set; }
             public string TargetAudience { get; set; }
             public string Priority { get; set; }
         }
@@ -73,7 +76,7 @@ namespace PWTestApp1___ProposalMockup.Views
             int i = 0;
             foreach (string ann in announcementList)
             {
-                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i] });
+                AnnouncementsInit.Announcement.Add(new Announcement { AnnouncementTitle = ann, Content = announcementSender[i] + ": " + announcementContent[i], AnnouncementId = int.Parse(AboutPage.assignedAIds[i]) });
                 i++;
             }
 
