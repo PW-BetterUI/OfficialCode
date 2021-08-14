@@ -63,7 +63,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         }
 
-        private async void CredentialsInit()
+        private async void GetAnnouncements()
         {
             GoogleCredential credential;
 
@@ -290,6 +290,32 @@ namespace PWTestApp1___ProposalMockup.Views
 
         //-------------------------------------------------------------------------------------------------------------------
 
+        public async void WelcomeUser()
+        {
+            CredentialsInit();
+
+            var range = $"{studentInformationSheet}!A2:B";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+
+            int i = 0;
+            foreach (var row in values)
+            {
+                if (i == idPosition)
+                {
+                    userNamePageDisplay.Text = row[1].ToString();
+                    Console.WriteLine(row[1]);
+
+                    //await DisplayAlert("yes", row[1].ToString(), "ok");
+
+                    break;
+                }
+
+                i++;
+            }
+        }
 
         public void clock()
         {
