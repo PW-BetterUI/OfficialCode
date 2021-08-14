@@ -46,7 +46,7 @@ namespace PWTestApp1___ProposalMockup.Views
             StackLayout stackLayout = Announcements;
             InitializeComponent();
             clock();
-            UpcomingEventsMainTask();
+            //UpcomingEventsMainTask();
         }
 
         protected override void OnAppearing()
@@ -216,7 +216,7 @@ namespace PWTestApp1___ProposalMockup.Views
         //---------------------------------------- CODE TO RUN UPCOMING EVENTS -------------------------------------
 
 
-        private async void GetUpcomingEvents(IReposito)
+        private async void GetUpcomingEvents()
         {
             CredentialsInit();
 
@@ -343,6 +343,6 @@ namespace PWTestApp1___ProposalMockup.Views
 
         }
 
-        public static IHostBuilder CreateHostBuilder(string[], args)
+        //public static IHostBuilder CreateHostBuilder(string[], args);
     }
 }
