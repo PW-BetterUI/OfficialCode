@@ -196,16 +196,23 @@ namespace PWTestApp1___ProposalMockup.Views
                 int i = announcementList.Count();
                 for (int d = 0; d < i; d++)
                 {
-                    Console.WriteLine(announcementList[d]);
-                    var button = new Button();
-                    button.CornerRadius = 7;
-                    button.Text = announcementList[d];
+                    var button = new Button
+                    {
+                        CornerRadius = 7,
+                        Text = announcementList[d]
+                    };
+
                     Announcements.Children.Add(button);
+
                     string title = button.Text;
                     string content = announcementSender[d] + "+ " + announcementContent[d];
                     string priority = "N/A";
                     string Audience = "N/A";
-                    button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage(title, content)); };
+
+                    title = ItemDetailPage.titleName;
+                    content = ItemDetailPage.Content;
+
+                    button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage()); };
                 }
             }
 
