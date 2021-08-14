@@ -60,7 +60,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         }
 
-        private async void GetAnnouncements()
+        private async void CredentialsInit()
         {
             GoogleCredential credential;
 
@@ -318,33 +318,6 @@ namespace PWTestApp1___ProposalMockup.Views
             //wc.DownloadFile("https://isphs.hci.edu.sg/download.asp?f=HSStudentHandbook", @"/download/handbook.pdf");
             //await DisplayAlert("Download", "Downloading File", "OK");
             await DisplayAlert("Notice", "Student Handbook download will be added at a later date. \nWe apologise for the inconvenience caused.", "OK");
-        }
-
-        public void WelcomeUser()
-        {
-            CredentialsInit();
-
-            var range = $"{studentInformationSheet}!A2:B";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
-
-            var response = request.Execute();
-            var values = response.Values;
-
-            int i = 0;
-            foreach (var row in values)
-            {
-                if (i == idPosition)
-                {
-                    userNamePageDisplay.Text = row[1].ToString();
-                    Console.WriteLine(row[1]);
-
-                    //await DisplayAlert("yes", row[1].ToString(), "ok");
-
-                    break;
-                }
-
-                i++;
-            }
         }
 
         private void ToolbarItem_Clicked(object sender, EventArgs e)

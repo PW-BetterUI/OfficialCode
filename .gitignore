@@ -338,3 +338,5 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/PWTestApp1 - ProposalMockup/Views/Page1.xaml
+/PWTestApp1 - ProposalMockup/Views/Page1.xaml.cs
