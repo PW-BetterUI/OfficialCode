@@ -18,6 +18,7 @@ namespace PWTestApp1___ProposalMockup.Views
         static readonly string SpreadsheetId = "1w7bPa_hrH382oVPDwIW9EotY-rzHcj8VHBesYPHPNEg";
         static readonly string studentInformationSheet = "Student Information";
         static readonly string announcementLogSheet = "Announcement Log";
+        static readonly string upcomingEventsSheet = "Upcoming Events";
         static SheetsService service;
 
         public static string announcements;
@@ -31,6 +32,10 @@ namespace PWTestApp1___ProposalMockup.Views
         public static List<string> saAnnouncementList = new List<string>();
         public static List<string> saAnnouncementContent = new List<string>();
         public static List<string> saAnnouncementSender = new List<string>();
+
+        private static List<string> eventTitle = new List<string>();
+        private static List<string> eventStartDate_ = new List<string>();
+        private static List<string> eventEndDate_ = new List<string>();
 
         public static int idPosition;
 
@@ -46,26 +51,13 @@ namespace PWTestApp1___ProposalMockup.Views
             base.OnAppearing();
             announcementExist = false;
             MainTask();
+            //UpcomingEventsMainTask();
             WelcomeUser();
         }
 
         public void countButton(System.Object sender, System.EventArgs e)
         {
 
-        }
-
-        private async void CredentialsInit()
-        {
-            GoogleCredential credential;
-
-            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("clientSecrets.json"))
-                .CreateScoped(Scopes);
-
-            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
-            {
-                HttpClientInitializer = credential,
-                ApplicationName = ApplicationName,
-            });
         }
 
         private async void GetAnnouncements()
@@ -80,6 +72,11 @@ namespace PWTestApp1___ProposalMockup.Views
                 HttpClientInitializer = credential,
                 ApplicationName = ApplicationName,
             });
+        }
+
+        private void GetAnnouncements()
+        {
+            CredentialsInit();
 
             var range = $"{studentInformationSheet}!L2:N";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
@@ -213,6 +210,65 @@ namespace PWTestApp1___ProposalMockup.Views
             LoadingAnnouncementsActivityIndicator.IsRunning = false;
         }
 
+        //---------------------------------------- CODE TO RUN UPCOMING EVENTS -------------------------------------
+
+
+        //private void GetUpcomingEvents()
+        //{
+        //    CredentialsInit();
+
+        //    var range = $"{upcomingEventsSheet}!A2:C";
+        //    var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+        //    var response = request.Execute();
+        //    var values = response.Values;
+
+        //    eventTitle.Clear();
+        //    eventStartDate_.Clear();
+        //    eventEndDate_.Clear();
+
+        //    DateTime startDate = DateTime.Today;
+        //    DateTime endDate = startDate.AddDays(7);
+
+        //    foreach (var row in values)
+        //    {
+        //        DateTime eventStartDate = DateTime.Parse(row[1].ToString());
+        //        if (eventStartDate >= startDate && eventStartDate < endDate)
+        //        {
+        //            eventTitle.Add(row[0].ToString());
+        //            eventStartDate_.Add(row[1].ToString());
+        //            eventEndDate_.Add(row[2].ToString());
+        //        }
+        //    }
+        //}
+
+        //private async void UpcomingEventsMainTask()
+        //{
+        //    await Task.Run(() => GetUpcomingEvents());
+
+        //    UpcomingEvents.Children.Clear();
+
+        //    int i = 0;
+        //    foreach (string s in eventTitle)
+        //    {
+        //        var button = new Button
+        //        {
+        //            CornerRadius = 7,
+        //            Text = s,
+        //        };
+
+        //        UpcomingEvents.Children.Add(button);
+
+        //        string title = eventTitle[i];
+        //        string startDate = eventStartDate_[i];
+        //        string endDate = eventEndDate_[i];
+
+        //        Console.WriteLine(title);
+        //        button.Clicked += delegate { _ = Navigation.PushAsync(new ViewUpcomingEvents(title, startDate, endDate)); };
+
+        //        i++;
+        //    }
+        //}
 
         //-------------------------------------------------------------------------------------------------------------------
 
@@ -254,6 +310,46 @@ namespace PWTestApp1___ProposalMockup.Views
 
                 return true;
             });
+        }
+
+        private async void Button_Pressed(object sender, EventArgs e)
+        {
+            //WebClient wc = new WebClient();
+            //wc.DownloadFile("https://isphs.hci.edu.sg/download.asp?f=HSStudentHandbook", @"/download/handbook.pdf");
+            //await DisplayAlert("Download", "Downloading File", "OK");
+            await DisplayAlert("Notice", "Student Handbook download will be added at a later date. \nWe apologise for the inconvenience caused.", "OK");
+        }
+
+        public void WelcomeUser()
+        {
+            CredentialsInit();
+
+            var range = $"{studentInformationSheet}!A2:B";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+
+            int i = 0;
+            foreach (var row in values)
+            {
+                if (i == idPosition)
+                {
+                    userNamePageDisplay.Text = row[1].ToString();
+                    Console.WriteLine(row[1]);
+
+                    //await DisplayAlert("yes", row[1].ToString(), "ok");
+
+                    break;
+                }
+
+                i++;
+            }
+        }
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

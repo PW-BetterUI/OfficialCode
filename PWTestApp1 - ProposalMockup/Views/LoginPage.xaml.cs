@@ -21,6 +21,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         private static bool idFailed = true;
         private static bool passwordFailed = true;
+        private static bool userCredentialsFailed = true;
 
         private static int idPos = 0;
         public static string userId;
@@ -43,13 +44,9 @@ namespace PWTestApp1___ProposalMockup.Views
             activityIndicator.IsRunning = true;
             errorMsg.IsVisible = false;
 
-            await Task.Run(() =>
-            {
-                CheckUserID(id);
-                CheckPassword(pass);
-            });
+            await Task.Run(() => CheckEnteredCredentials(id, pass));
 
-            if (idFailed || passwordFailed)
+            if (userCredentialsFailed)
             {
                 errorMsg.IsVisible = true;
             }
@@ -61,8 +58,9 @@ namespace PWTestApp1___ProposalMockup.Views
                 AboutPage.idPosition = idPos;
             }
 
-            idFailed = true;
-            passwordFailed = true;
+            //idFailed = true;
+            //passwordFailed = true;
+            userCredentialsFailed = true;
             activityIndicator.IsRunning = false;
 
             idPos = 0;
@@ -81,6 +79,51 @@ namespace PWTestApp1___ProposalMockup.Views
                 ApplicationName = ApplicationName,
             });
         }
+
+        private void CheckEnteredCredentials(string id, string password)
+        {
+            CheckCredentials();
+
+            var range = $"{sheet}!A2:D";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+            if(values != null && values.Count > 0)
+            {
+                foreach(var row in values)
+                {
+                    if (id != null && id.ToLower() == row[0].ToString())
+                    {
+                        Console.WriteLine(row[3]);
+
+                        if(password != null && password == row[3].ToString())
+                        {
+                            Console.WriteLine("yes");
+                            userId = row[0].ToString();
+
+                            safeEntry.userId = row[0].ToString();
+                            //Results.userId = row[0].ToString();
+                            //AboutPage.userId = row[0].ToString();
+                            //AboutPage.position = row[0].ToString();
+
+                            userCredentialsFailed = false;
+                            return;
+                        }
+                        else
+                        {
+                            Console.WriteLine("not correct lol");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("id  not even correct lol");
+                    }
+                    idPos++;
+                }
+            }
+        }
+
         private void CheckUserID(string id)
         {
             CheckCredentials();
