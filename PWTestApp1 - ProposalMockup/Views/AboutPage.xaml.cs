@@ -209,10 +209,8 @@ namespace PWTestApp1___ProposalMockup.Views
                     string priority = "N/A";
                     string Audience = "N/A";
 
-                    title = ItemDetailPage.titleName;
-                    content = ItemDetailPage.Content;
 
-                    button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage()); };
+                    button.Clicked += delegate { _ = Navigation.PushAsync(new ItemDetailPage(title, content)); };
                 }
             }
 
