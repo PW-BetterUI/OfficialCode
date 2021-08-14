@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="PWTestApp1___ProposalMockup.Views.SavedAnnouncements"
              Title="Saved Announcements"
-             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">>
+             BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}">
     <ContentPage.Content>
         <StackLayout>
             <ListView x:Name="Announcements" HeightRequest="225" IsEnabled="True" VerticalScrollBarVisibility="Always" HasUnevenRows="True">
