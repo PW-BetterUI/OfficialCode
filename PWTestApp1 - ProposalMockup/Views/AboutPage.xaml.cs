@@ -51,7 +51,7 @@ namespace PWTestApp1___ProposalMockup.Views
             base.OnAppearing();
             announcementExist = false;
             MainTask();
-            UpcomingEventsMainTask();
+            //UpcomingEventsMainTask();
             WelcomeUser();
         }
 
@@ -213,62 +213,62 @@ namespace PWTestApp1___ProposalMockup.Views
         //---------------------------------------- CODE TO RUN UPCOMING EVENTS -------------------------------------
 
 
-        private void GetUpcomingEvents()
-        {
-            CredentialsInit();
+        //private void GetUpcomingEvents()
+        //{
+        //    CredentialsInit();
 
-            var range = $"{upcomingEventsSheet}!A2:C";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+        //    var range = $"{upcomingEventsSheet}!A2:C";
+        //    var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
-            var response = request.Execute();
-            var values = response.Values;
+        //    var response = request.Execute();
+        //    var values = response.Values;
 
-            eventTitle.Clear();
-            eventStartDate_.Clear();
-            eventEndDate_.Clear();
+        //    eventTitle.Clear();
+        //    eventStartDate_.Clear();
+        //    eventEndDate_.Clear();
 
-            DateTime startDate = DateTime.Today;
-            DateTime endDate = startDate.AddDays(7);
+        //    DateTime startDate = DateTime.Today;
+        //    DateTime endDate = startDate.AddDays(7);
 
-            foreach (var row in values)
-            {
-                DateTime eventStartDate = DateTime.Parse(row[1].ToString());
-                if (eventStartDate >= startDate && eventStartDate < endDate)
-                {
-                    eventTitle.Add(row[0].ToString());
-                    eventStartDate_.Add(row[1].ToString());
-                    eventEndDate_.Add(row[2].ToString());
-                }
-            }
-        }
+        //    foreach (var row in values)
+        //    {
+        //        DateTime eventStartDate = DateTime.Parse(row[1].ToString());
+        //        if (eventStartDate >= startDate && eventStartDate < endDate)
+        //        {
+        //            eventTitle.Add(row[0].ToString());
+        //            eventStartDate_.Add(row[1].ToString());
+        //            eventEndDate_.Add(row[2].ToString());
+        //        }
+        //    }
+        //}
 
-        private async void UpcomingEventsMainTask()
-        {
-            await Task.Run(() => GetUpcomingEvents());
+        //private async void UpcomingEventsMainTask()
+        //{
+        //    await Task.Run(() => GetUpcomingEvents());
 
-            UpcomingEvents.Children.Clear();
+        //    UpcomingEvents.Children.Clear();
 
-            int i = 0;
-            foreach (string s in eventTitle)
-            {
-                var button = new Button
-                {
-                    CornerRadius = 7,
-                    Text = s,
-                };
+        //    int i = 0;
+        //    foreach (string s in eventTitle)
+        //    {
+        //        var button = new Button
+        //        {
+        //            CornerRadius = 7,
+        //            Text = s,
+        //        };
 
-                UpcomingEvents.Children.Add(button);
+        //        UpcomingEvents.Children.Add(button);
 
-                string title = eventTitle[i];
-                string startDate = eventStartDate_[i];
-                string endDate = eventEndDate_[i];
+        //        string title = eventTitle[i];
+        //        string startDate = eventStartDate_[i];
+        //        string endDate = eventEndDate_[i];
 
-                Console.WriteLine(title);
-                button.Clicked += delegate { _ = Navigation.PushAsync(new ViewUpcomingEvents(title, startDate, endDate)); };
+        //        Console.WriteLine(title);
+        //        button.Clicked += delegate { _ = Navigation.PushAsync(new ViewUpcomingEvents(title, startDate, endDate)); };
 
-                i++;
-            }
-        }
+        //        i++;
+        //    }
+        //}
 
         //-------------------------------------------------------------------------------------------------------------------
 
