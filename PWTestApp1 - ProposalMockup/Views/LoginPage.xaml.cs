@@ -189,25 +189,25 @@ namespace PWTestApp1___ProposalMockup.Views
         //{
         //    CheckCredentials();
 
-            var range = $"{sheet}!A2:D";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+        //    var range = $"{sheet}!A2:D";
+        //    var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
-            var response = request.Execute();
-            var values = response.Values;
-            foreach (var row in values)
-            {
-                if (pass == row[3].ToString() && !idFailed && pass != null && i == idPos)
-                {
-                    Console.WriteLine("password correct yes");
-                    passwordFailed = false;
-                    return;
-                }
-                else //if (failed || pass == null)
-                {
-                    Console.WriteLine("bruh password incorrect");
-                }
-                i++;
-            }
+        //    var response = request.Execute();
+        //    var values = response.Values;
+        //    foreach (var row in values)
+        //    {
+        //        if (pass == row[3].ToString() && !idFailed && pass != null && i == idPos)
+        //        {
+        //            Console.WriteLine("password correct yes");
+        //            passwordFailed = false;
+        //            return;
+        //        }
+        //        else //if (failed || pass == null)
+        //        {
+        //            Console.WriteLine("bruh password incorrect");
+        //        }
+        //        i++;
+        //    }
         }
     }
 }
