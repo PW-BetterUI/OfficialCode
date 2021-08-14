@@ -46,11 +46,26 @@ namespace PWTestApp1___ProposalMockup.Views
             base.OnAppearing();
             announcementExist = false;
             MainTask();
+            WelcomeUser();
         }
 
         public void countButton(System.Object sender, System.EventArgs e)
         {
 
+        }
+
+        private async void CredentialsInit()
+        {
+            GoogleCredential credential;
+
+            credential = GoogleCredential.FromStream(await FileSystem.OpenAppPackageFileAsync("clientSecrets.json"))
+                .CreateScoped(Scopes);
+
+            service = new SheetsService(new Google.Apis.Services.BaseClientService.Initializer()
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName,
+            });
         }
 
         private async void GetAnnouncements()
@@ -201,6 +216,32 @@ namespace PWTestApp1___ProposalMockup.Views
 
         //-------------------------------------------------------------------------------------------------------------------
 
+        public async void WelcomeUser()
+        {
+            CredentialsInit();
+
+            var range = $"{studentInformationSheet}!A2:B";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+
+            int i = 0;
+            foreach (var row in values)
+            {
+                if (i == idPosition)
+                {
+                    userNamePageDisplay.Text = row[1].ToString();
+                    Console.WriteLine(row[1]);
+
+                    //await DisplayAlert("yes", row[1].ToString(), "ok");
+
+                    break;
+                }
+
+                i++;
+            }
+        }
 
         public void clock()
         {
