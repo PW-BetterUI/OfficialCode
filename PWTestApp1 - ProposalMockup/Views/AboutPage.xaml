@@ -52,13 +52,13 @@
 
         </StackLayout>
 
-        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Fill" VerticalOptions="Center" Margin="10, 5, 5, 0"  HeightRequest="150">
+        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="3" HorizontalOptions="Fill" VerticalOptions="Center" Margin="10, 5, 2.5, 0"  HeightRequest="150">
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3" VerticalOptions="Center">
                 <Label x:Name="timeLabel"  FontSize="Medium" TextColor="{AppThemeBinding Light=Black, Dark=White }" BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3" HorizontalOptions="Center" VerticalOptions="FillAndExpand" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
             </StackLayout>
         </Frame>
 
-        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="Fill" Margin="10, 0, 5, 5">
+        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="0" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="Fill" Margin="10, 0, 2.5, 5">
             <StackLayout BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" Grid.Column="2" Grid.Row="3">
                 <Label Text="Upcoming Events" TextColor="Red" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="Center"/>
                 <ScrollView>
@@ -68,14 +68,14 @@
             </StackLayout>
         </Frame>
 
-        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="Fill" Margin="5, 5, 10, 0">
+        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="3" Grid.Row="3" Grid.ColumnSpan="3" Grid.RowSpan="2" HorizontalOptions="Fill" Margin="2.5, 5, 10, 0">
             <StackLayout>
                 <Label Text="Welcome To IESP" TextColor="Red" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center"/>
-                <Label x:Name="userNamePageDisplay" Text="Test" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
+                <Label x:Name="userNamePageDisplay" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center" TextColor="{AppThemeBinding Light=Black, Dark=White}" />
             </StackLayout>
         </Frame>
 
-        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalOptions="Fill" Margin="5, 0, 10, 5">
+        <Frame BackgroundColor="{AppThemeBinding Dark=#363636, Light=#FFD3D3D3}" CornerRadius="7" Grid.Column="3" Grid.Row="5" Grid.ColumnSpan="3" Grid.RowSpan="1" HorizontalOptions="Fill" Margin="2.5, 0, 10, 5">
             <StackLayout VerticalOptions="Center">
                 <Label Text="Downloads"  TextColor="Red" FontAttributes="Bold" FontSize="Medium" HorizontalOptions="Center"/>
                 <Button Text="Student Handbook" FontSize="Micro" CornerRadius="7" HeightRequest="40" Pressed="Button_Pressed"/>

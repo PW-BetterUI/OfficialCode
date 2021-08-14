@@ -8,6 +8,8 @@ using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Sheets.v4;
+using System.Globalization;
+using Microsoft.Extensions.Logging;
 
 namespace PWTestApp1___ProposalMockup.Views
 {
@@ -44,14 +46,15 @@ namespace PWTestApp1___ProposalMockup.Views
             StackLayout stackLayout = Announcements;
             InitializeComponent();
             clock();
+            UpcomingEventsMainTask();
         }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             announcementExist = false;
-            MainTask();
             //UpcomingEventsMainTask();
+            MainTask();
             WelcomeUser();
         }
 
@@ -213,62 +216,77 @@ namespace PWTestApp1___ProposalMockup.Views
         //---------------------------------------- CODE TO RUN UPCOMING EVENTS -------------------------------------
 
 
-        //private void GetUpcomingEvents()
-        //{
-        //    CredentialsInit();
+        private async void GetUpcomingEvents()
+        {
+            CredentialsInit();
 
-        //    var range = $"{upcomingEventsSheet}!A2:C";
-        //    var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+            await DisplayAlert("e", "f", "g");
 
-        //    var response = request.Execute();
-        //    var values = response.Values;
+            var range = $"{upcomingEventsSheet}!A2:C";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
-        //    eventTitle.Clear();
-        //    eventStartDate_.Clear();
-        //    eventEndDate_.Clear();
+            var response = request.Execute();
+            var values = response.Values;
 
-        //    DateTime startDate = DateTime.Today;
-        //    DateTime endDate = startDate.AddDays(7);
+            eventTitle.Clear();
+            eventStartDate_.Clear();
+            eventEndDate_.Clear();
 
-        //    foreach (var row in values)
-        //    {
-        //        DateTime eventStartDate = DateTime.Parse(row[1].ToString());
-        //        if (eventStartDate >= startDate && eventStartDate < endDate)
-        //        {
-        //            eventTitle.Add(row[0].ToString());
-        //            eventStartDate_.Add(row[1].ToString());
-        //            eventEndDate_.Add(row[2].ToString());
-        //        }
-        //    }
-        //}
+            DateTime startDate = DateTime.Today;
+            Console.WriteLine(startDate);
+            DateTime endDate = startDate.AddDays(7);
+            Console.WriteLine("this works");
 
-        //private async void UpcomingEventsMainTask()
-        //{
-        //    await Task.Run(() => GetUpcomingEvents());
+            try
+            {
+                foreach (var row in values)
+                {
+                    DateTime eventStartDate = DateTime.Parse(row[1].ToString());
 
-        //    UpcomingEvents.Children.Clear();
+                    if (eventStartDate >= startDate && eventStartDate < endDate)
+                    {
+                        eventTitle.Add(row[0].ToString());
+                        eventStartDate_.Add(row[1].ToString());
+                        eventEndDate_.Add(row[2].ToString());
+                    }
+                }
+                Console.WriteLine("this is working what");
+                
+            }   
+            catch(Exception e)
+            {
+                await DisplayAlert("oh no", e.GetType().ToString(), "whas");
+                Console.WriteLine("catch statement");
+            }
+        }
 
-        //    int i = 0;
-        //    foreach (string s in eventTitle)
-        //    {
-        //        var button = new Button
-        //        {
-        //            CornerRadius = 7,
-        //            Text = s,
-        //        };
+        private async void UpcomingEventsMainTask()
+        {
+            await Task.Run(() => GetUpcomingEvents());
 
-        //        UpcomingEvents.Children.Add(button);
+            UpcomingEvents.Children.Clear();
 
-        //        string title = eventTitle[i];
-        //        string startDate = eventStartDate_[i];
-        //        string endDate = eventEndDate_[i];
+            int i = 0;
+            foreach (string s in eventTitle)
+            {
+                var button = new Button
+                {
+                    CornerRadius = 7,
+                    Text = s,
+                };
 
-        //        Console.WriteLine(title);
-        //        button.Clicked += delegate { _ = Navigation.PushAsync(new ViewUpcomingEvents(title, startDate, endDate)); };
+                UpcomingEvents.Children.Add(button);
 
-        //        i++;
-        //    }
-        //}
+                string title = eventTitle[i];
+                string startDate = eventStartDate_[i];
+                string endDate = eventEndDate_[i];
+
+                Console.WriteLine(title);
+                button.Clicked += delegate { _ = Navigation.PushAsync(new ViewUpcomingEvents(title, startDate, endDate)); };
+
+                i++;
+            }
+        }
 
         //-------------------------------------------------------------------------------------------------------------------
 
@@ -278,7 +296,7 @@ namespace PWTestApp1___ProposalMockup.Views
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>
-                timeLabel.Text = DateTime.Now.ToString("dd MMMM yyyy \n HH:mm:ss")
+                timeLabel.Text = DateTime.Now.ToString("dd MMMM yyyy\nHH:mm:ss")
                 );
 
 
@@ -305,6 +323,9 @@ namespace PWTestApp1___ProposalMockup.Views
             var values = response.Values;
 
             int i = 0;
+
+            userNamePageDisplay.Text = " ";
+
             foreach (var row in values)
             {
                 if (i == idPosition)
