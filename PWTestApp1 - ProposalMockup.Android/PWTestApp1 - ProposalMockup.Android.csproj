@@ -40,7 +40,7 @@
     <MandroidI18n />
     <EmbedAssembliesIntoApk>true</EmbedAssembliesIntoApk>
     <AndroidKeyStore>true</AndroidKeyStore>
-    <AndroidSigningKeyStore>C:\Sun Zizhuo\Code\keystore2.keystore</AndroidSigningKeyStore>
+    <AndroidSigningKeyStore>C:\Users\OSdoge\Desktop\Keystore\keystore2.keystore</AndroidSigningKeyStore>
     <AndroidSigningStorePass>gamer123</AndroidSigningStorePass>
     <AndroidSigningKeyAlias>BetterUI</AndroidSigningKeyAlias>
     <AndroidSigningKeyPass>gamer123</AndroidSigningKeyPass>
@@ -153,7 +153,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties TriggeredFromHotReload="False" XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" />
+      <UserProperties XamarinHotReloadDebuggerTimeoutExceptionPWTestApp1ProposalMockupAndroidHideInfoBar="True" TriggeredFromHotReload="False" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

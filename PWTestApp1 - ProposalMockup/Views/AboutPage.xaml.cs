@@ -294,7 +294,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
             CredentialsInit();
 
-            var range = $"{studentInformationSheet}!A2:B";
+            var range = $"{studentInformationSheet}!A2:C";
             var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
             var response = request.Execute();
@@ -307,7 +307,7 @@ namespace PWTestApp1___ProposalMockup.Views
                 {
                     userNamePageDisplay.Text = row[1].ToString();
                     Console.WriteLine(row[1]);
-
+                    userClassPageDisplay.Text = row[2].ToString();
                     //await DisplayAlert("yes", row[1].ToString(), "ok");
 
                     break;
