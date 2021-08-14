@@ -342,7 +342,5 @@ namespace PWTestApp1___ProposalMockup.Views
         {
 
         }
-
-        //public static IHostBuilder CreateHostBuilder(string[], args);
     }
 }
