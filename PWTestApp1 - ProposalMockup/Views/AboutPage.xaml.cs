@@ -248,7 +248,7 @@ namespace PWTestApp1___ProposalMockup.Views
             Device.StartTimer(TimeSpan.FromSeconds(1), () =>
             {
                 Device.BeginInvokeOnMainThread(() =>
-                timeLabel.Text = DateTime.Now.ToString("dd MMMM yyyy \n HH:mm:ss")
+                timeLabel.Text = DateTime.Now.ToString("dd MMMM yyyy \nHH:mm:ss")
                 );
 
 
