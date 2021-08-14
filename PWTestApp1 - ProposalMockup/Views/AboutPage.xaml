@@ -46,7 +46,7 @@
                     </StackLayout>
                 </ScrollView>
             </Frame>
-            <!--<Entry x:Name="buttonNum" Placeholder="insert the number of buttons you want"/>-->
+            <!--<Entry x:Name="buttonNum" Placeholder="insert the number of buttons you want"/>--> <!--ABC-->
             <!--<Button Text="reload announcements" BackgroundColor="Gray" Clicked="Buttontoinsertmoreannouncementsthisisthelongestnameever_Clicked" x:Name="buttontoinsertmoreannouncementsthisisthelongestnameever"/>-->
             
         </StackLayout>
