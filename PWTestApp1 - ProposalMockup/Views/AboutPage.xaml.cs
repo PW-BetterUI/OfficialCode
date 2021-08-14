@@ -63,7 +63,7 @@ namespace PWTestApp1___ProposalMockup.Views
 
         }
 
-        private async void GetAnnouncements()
+        private async void CredentialsInit()
         {
             GoogleCredential credential;
 
