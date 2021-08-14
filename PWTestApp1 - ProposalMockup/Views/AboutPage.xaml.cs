@@ -338,36 +338,6 @@ namespace PWTestApp1___ProposalMockup.Views
             await DisplayAlert("Notice", "Student Handbook download will be added at a later date. \nWe apologise for the inconvenience caused.", "OK");
         }
 
-        public void WelcomeUser()
-        {
-            CredentialsInit();
-
-            var range = $"{studentInformationSheet}!A2:B";
-            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
-
-            var response = request.Execute();
-            var values = response.Values;
-
-            int i = 0;
-
-            userNamePageDisplay.Text = " ";
-
-            foreach (var row in values)
-            {
-                if (i == idPosition)
-                {
-                    userNamePageDisplay.Text = row[1].ToString();
-                    Console.WriteLine(row[1]);
-
-                    //await DisplayAlert("yes", row[1].ToString(), "ok");
-
-                    break;
-                }
-
-                i++;
-            }
-        }
-
         private void ToolbarItem_Clicked(object sender, EventArgs e)
         {
 
