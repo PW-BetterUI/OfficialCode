@@ -43,13 +43,7 @@ namespace PWTestApp1___ProposalMockup.Views
             activityIndicator.IsRunning = true;
             errorMsg.IsVisible = false;
 
-            //await Task.Run(() =>
-            //{
-            //    CheckUserID(id);
-            //    CheckPassword(pass);
-            //});
-
-            await Task.Run(() => CheckInputInformation(id, pass));
+            await Task.Run(() => CheckLoginCredentials(id, pass));
 
             if (credentialsFailed)
             {
@@ -85,7 +79,49 @@ namespace PWTestApp1___ProposalMockup.Views
             });
         }
 
-        private void CheckInputInformation(string id, string password)
+        private void CheckLoginCredentials(string id, string password)
+        {
+            CheckCredentials();
+
+            var range = $"{sheet}!A2:D";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
+
+            var response = request.Execute();
+            var values = response.Values;
+            if (values != null && values.Count > 0)
+            {
+                foreach (var row in values)
+                {
+                    if (id != null && id.ToLower() == row[0].ToString())
+                    {
+                        if(password != null & password == row[3].ToString())
+                        {
+                            Console.WriteLine("yes password and id are correct");
+
+                            credentialsFailed = false;
+                            userId = row[0].ToString();
+
+                            safeEntry.userId = row[0].ToString();
+                            Results.userId = row[0].ToString();
+                            AboutPage.userId = row[0].ToString();
+                            AboutPage.position = row[0].ToString();
+                            return;
+                        }
+
+                        //Console.WriteLine("yes");
+                        //idFailed = false;
+                        
+                    }
+                    else
+                    {
+                        Console.WriteLine("no");
+                    }
+                    idPos++;
+                }
+            }
+        }
+
+        private void CheckUserID(string id)
         {
             CheckCredentials();
 
@@ -101,16 +137,15 @@ namespace PWTestApp1___ProposalMockup.Views
                 {
                     if(id != null && id.ToLower() == row[0].ToString())
                     {
-                        if(password != null && password == row[3].ToString())
-                        {
-                            userId = row[0].ToString();
+                        Console.WriteLine("yes");
+                        idFailed = false;
+                        userId = row[0].ToString();
 
-                            safeEntry.userId = row[0].ToString();
-                            //Results.userId = row[0].ToString();
-                            //AboutPage.userId = row[0].ToString();
-                            //AboutPage.position = row[0].ToString();
-                            return;
-                        }
+                        safeEntry.userId = row[0].ToString();
+                        Results.userId = row[0].ToString();
+                        AboutPage.userId = row[0].ToString();
+                        AboutPage.position = row[0].ToString();
+                        return;
                     }
                     else
                     {
@@ -154,32 +189,25 @@ namespace PWTestApp1___ProposalMockup.Views
         //{
         //    CheckCredentials();
 
-        //    int i = 0;
+            var range = $"{sheet}!A2:D";
+            var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
 
-        //    var range = $"{sheet}!A2:D5";
-        //    var request = service.Spreadsheets.Values.Get(SpreadsheetId, range);
-
-        //    var response = request.Execute();
-        //    var values = response.Values;
-        //    foreach (var row in values)
-        //    {
-        //        if (pass == row[3].ToString() && !idFailed && pass != null && i == idPos)
-        //        {
-        //            Console.WriteLine("password correct yes");
-        //            passwordFailed = false;
-        //            return;
-        //        }
-        //        else //if (failed || pass == null)
-        //        {
-        //            Console.WriteLine("bruh password incorrect");
-        //        }
-        //        i++;
-        //    }
-        //}
-
-        //private void Button_Clicked(object sender, EventArgs e)
-        //{
-        //    Navigation.PushAsync(new SavedAnnouncements());
-        //}
+            var response = request.Execute();
+            var values = response.Values;
+            foreach (var row in values)
+            {
+                if (pass == row[3].ToString() && !idFailed && pass != null && i == idPos)
+                {
+                    Console.WriteLine("password correct yes");
+                    passwordFailed = false;
+                    return;
+                }
+                else //if (failed || pass == null)
+                {
+                    Console.WriteLine("bruh password incorrect");
+                }
+                i++;
+            }
+        }
     }
 }

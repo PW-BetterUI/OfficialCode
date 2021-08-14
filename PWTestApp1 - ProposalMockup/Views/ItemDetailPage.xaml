@@ -5,9 +5,9 @@
              BackgroundColor="{AppThemeBinding Light=White, Dark=#1A1A1A}"
              Title="{Binding Title}">
 
-    <ContentPage.ToolbarItems>
-        <ToolbarItem Text="Save Message" Clicked="ToolbarItem_Clicked"/>
-    </ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
+        <ToolbarItem Text="Star Message" Clicked="ToolbarItem_Clicked"/>
+    </ContentPage.ToolbarItems>-->
     
     <StackLayout Spacing="20" Padding="15">
         <!--<Label Text="Text:" FontSize="Medium" />

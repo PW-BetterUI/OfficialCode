@@ -1,18 +1,13 @@
-﻿using System;
-
+﻿
 using Android.App;
 using Android.Content.PM;
+using Android.OS;
 using Android.Runtime;
 using Android.Views;
-using Android.Widget;
-using Android.OS;
-
-using PWTestApp1___ProposalMockup.Droid;
-using PWTestApp1___ProposalMockup;
 
 namespace PWTestApp1___ProposalMockup.Droid
 {
-    [Activity(Label = "PWTestApp1___ProposalMockup", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+    [Activity(Label = "PWTestApp1___ProposalMockup", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = true, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
     public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
@@ -26,7 +21,7 @@ namespace PWTestApp1___ProposalMockup.Droid
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
             Window.SetStatusBarColor(Android.Graphics.Color.Red);
-            
+
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

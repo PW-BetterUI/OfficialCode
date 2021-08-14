@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:xns="http://xamarin.com/schemas/2020/toolkit"
+             x:Class="PWTestApp1___ProposalMockup.Views.View1">
+  <ContentView.Content>
+      <!--<StackLayout>
+            <xns:MediaElement AutoPlay="True" x:Name="mediaSource"/>
+        </StackLayout>-->
+  </ContentView.Content>
+</ContentView>
