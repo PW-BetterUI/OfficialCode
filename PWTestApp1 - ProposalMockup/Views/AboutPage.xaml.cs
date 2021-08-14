@@ -216,7 +216,7 @@ namespace PWTestApp1___ProposalMockup.Views
         //---------------------------------------- CODE TO RUN UPCOMING EVENTS -------------------------------------
 
 
-        private async void GetUpcomingEvents()
+        private async void GetUpcomingEvents(IReposito)
         {
             CredentialsInit();
 
@@ -342,5 +342,7 @@ namespace PWTestApp1___ProposalMockup.Views
         {
 
         }
+
+        public static IHostBuilder CreateHostBuilder(string[], args)
     }
 }
